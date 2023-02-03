@@ -1,0 +1,32 @@
+{
+  "name": "rowdy-roots",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "tin-engine": "^0.1.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.*",
+    "webpack-cli": "^4.*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "webpack --config webpack.config.js --mode development -w",
+    "build": "webpack --config webpack.config.js --mode production"
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MasterIV/rowdy-roots.git"
+  },
+  "keywords": [
+    "ggj2023"
+  ],
+  "author": "Tobias Rojahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MasterIV/rowdy-roots/issues"
+  },
+  "homepage": "https://github.com/MasterIV/rowdy-roots#readme"
+}
