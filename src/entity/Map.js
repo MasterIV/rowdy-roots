@@ -14,7 +14,19 @@ export default class Map extends Entity {
 
 	}
 
-	update(delta) {
+	getPos(pixelCoordinates) {
+
+	}
+
+	isConnected(origin, points) {
+
+	}
+
+	place(origin, points) {
+
+	}
+
+	get(x, y, layers) {
 
 	}
 
