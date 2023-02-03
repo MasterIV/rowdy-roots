@@ -4,19 +4,25 @@ import controls from 'tin-engine/core/controls';
 import mouse from 'tin-engine/core/mouse';
 import config from './config';
 import TitleScene from './scene/TitleScene';
+import {TiledDataLoader} from 'tin-engine/lib/map';
 
 window.onload = () => {
 	// Preload graphics here
 	// graphics.add('img/some_asset.png');
 
-	graphics.load(() => {
-		document.getElementById('loading').style.display = 'none';
+	window.maploader = new TiledDataLoader();
+	window.maploader.preloadCompleteJSON('maps/level1.json', () => {
+		graphics.load(() => {
+			document.getElementById('loading').style.display = 'none';
 
-		const game = new Game(config, document.getElementById('gameframe'));
+			const game = new Game(config, document.getElementById('gameframe'));
 
-		controls.init(game);
-		mouse.init(game);
+			controls.init(game);
+			mouse.init(game);
 
-		game.run(new TitleScene());
+			game.run(new TitleScene());
+			// debug
+			window.game = game;
+		})
 	});
 };
