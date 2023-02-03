@@ -16,8 +16,8 @@
             "scale": 0.26093333333333335,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 747.3173224322944,
-                "y": 749.2335206949413
+                "x": 751.1497189575881,
+                "y": 756.8983137455289
             }
         }
     },
@@ -32,8 +32,8 @@
     ],
     "project": "tiled_project.tiled-project",
     "recentFiles": [
-        "level1.json",
-        "Terrain.json"
+        "Terrain.json",
+        "level1.json"
     ],
     "tileset.lastUsedFormat": "json",
     "tileset.tileSize": {
