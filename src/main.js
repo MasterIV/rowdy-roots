@@ -6,7 +6,7 @@ import config from './config';
 import TitleScene from './scene/TitleScene';
 
 window.onload = () => {
-    // Preload graphics here
+	// Preload graphics here
 	// graphics.add('img/some_asset.png');
 
 	graphics.load(() => {
