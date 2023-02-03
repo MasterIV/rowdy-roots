@@ -4,10 +4,19 @@ import V2, {Zero} from 'tin-engine/geo/v2';
 import {TiledMap} from 'tin-engine/lib/map';
 
 export default class Map extends Entity {
-	constructor() {
+	constructor(level) {
 		super();
 
-		this.tiledMap = null;
+		this.root = 'Roots';
+		this.tree = 'Tree';
+		this.rock = 'Rocks';
+		this.dirt = 'Background';
+		this.resource = 'Resources';
+		this.mapBlockingLayers = [this.root, this.tree, this.rock];
+
+		const levelDef = window.maploader.data[`maps/level${level}.json`];
+		this.tiledMap = new TiledMap(levelDef, Zero());
+		this.add(this.tiledMap);
 	}
 
 	click(pos) {
@@ -15,7 +24,7 @@ export default class Map extends Entity {
 	}
 
 	getPos(pixelCoordinates) {
-
+		return this.tiledMap.toTile(pixelCoordinates);
 	}
 
 	isConnected(origin, points) {
@@ -26,13 +35,52 @@ export default class Map extends Entity {
 
 	}
 
-	get(x, y, layers) {
-
+	isWhat(mapCoordinates) {
+		let value = this.filter(mapCoordinates, [this.root, this.tree, this.rock, this.resource], true);
+		if (value === false) value = this.dirt;
+		return value;
 	}
 
-	loadLevel(i) {
-		const levelDef = window.maploader.data[`maps/level${i}.json`];
-		this.tiledMap = new TiledMap(levelDef, Zero());
-		this.add(this.tiledMap);
+	isBlocked(mapCoordinates) {
+		return this.filter(mapCoordinates, this.mapBlockingLayers);
+	}
+
+	isRoot(mapCoordinates) {
+		return this.filter(mapCoordinates, [this.root]);
+	}
+
+	isRock(mapCoordinates) {
+		return this.filter(mapCoordinates, [this.rock]);
+	}
+
+	isTree(mapCoordinates) {
+		return this.filter(mapCoordinates, [this.tree]);
+	}
+
+	isResource(mapCoordinates) {
+		return this.filter(mapCoordinates, [this.resource]);
+	}
+
+	filter(mapCoordinates, layerNames, returnName) {
+		let value = false;
+		const index = this.getLayerDataIndexFromPos(mapCoordinates);
+
+		layerNames.forEach(layerName => {
+			const layer = this.tiledMap.getLayer(layerName);
+
+			if (layer.data.data[index] != 0) {
+				if (returnName) {
+					value = layerName;
+				}
+				else {
+					value = true;
+				}
+			}
+		});
+		return value;
+	}
+
+	getLayerDataIndexFromPos(mapCoordinates) {
+		return mapCoordinates.x + mapCoordinates.y * this.tiledMap.data.width;
 	}
 }

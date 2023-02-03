@@ -2,14 +2,13 @@ import Scene from 'tin-engine/lib/scene';
 import Map from '../entity/Map';
 
 export default class GameScene extends Scene {
-	constructor() {
+	constructor(level) {
 		super();
 
-		this.map = new Map();
+		// TESTING
+		level = 1;
+		this.map = new Map(level);
 		this.add(this.map);
-
-		// testing
-		this.map.loadLevel(1);
 	}
 
 	onDraw(ctx) {
