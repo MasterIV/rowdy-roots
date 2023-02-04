@@ -39,7 +39,7 @@ export default class GameScene extends Scene {
 		this.add(new Resources(new V2(1080, 0), this.resources));
 		this.center(new BuildMenu(new V2(0, 600), this.cursor));
 		this.add(new RootMenu(Zero(), this.cursor, levelData[level].shapes));
-		this.add(new CancelButton(new V2(100, 0), this.cursor));
+		this.add(new CancelButton(new V2(0, 0), this.cursor));
 	}
 
 	debugSpawnEnemies() {

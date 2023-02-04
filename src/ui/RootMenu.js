@@ -16,4 +16,8 @@ export default class RootMenu extends Entity {
     update() {
         this.visible = this.cursor.field == null && this.cursor.layout == null;
     }
+
+	click(pos) {
+        if(this.visible) super.click(pos);
+    }
 }

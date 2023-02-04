@@ -36,4 +36,8 @@ export default class BuildMenu extends Entity {
     update() {
         this.visible = this.cursor.field != null;
     }
+
+	click(pos) {
+        if(this.visible) super.click(pos);
+    }
 }
