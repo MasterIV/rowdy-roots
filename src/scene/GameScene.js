@@ -10,6 +10,9 @@ import Enemy from '../entity/Enemy';
 import Resources from '../ui/Resources';
 import EnemySpawner from '../entity/EnemySpawner';
 import TitleScene from './TitleScene';
+import BuildMenu from '../ui/BuildMenu';
+import RootMenu from '../ui/RootMenu';
+import CancelButton from '../ui/CancelButton';
 
 export default class GameScene extends Scene {
 	constructor(level) {
@@ -33,10 +36,9 @@ export default class GameScene extends Scene {
 		this.viewport.centerSelf();
 
 		this.add(new Resources(new V2(1080, 0), this.resources));
-
-		const s = levelData[level].shapes;
-		this.add(Button.create(Zero(), () => this.cursor.setShape(s[(Math.random()*s.length)|0])).rect(100, 100));
-
+		this.center(new BuildMenu(new V2(0, 600), this.cursor));
+		this.add(new RootMenu(Zero(), this.cursor, levelData[level].shapes));
+		this.add(new CancelButton(new V2(100, 0), this.cursor));
 	}
 
 	debugSpawnEnemies() {
