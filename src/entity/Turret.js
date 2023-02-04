@@ -37,7 +37,7 @@ export default class Turret extends Entity {
 			}
 
 			this.target = targets.reduce((a, b) => a.distance < b.distance ? a : b);
-			this.parent.add(new Bullet(this.position.clone(), this.type, this.target));
+			this.parent.add(new Bullet(this.position.clone(), this.type, this.target, this.enemies));
 			this.cooldown = this.type.cooldown;
 		}
 	}

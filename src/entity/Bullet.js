@@ -5,11 +5,12 @@ import graphic from 'tin-engine/core/graphic';
 const speed = 500;
 
 export default class Bullet extends Entity {
-	constructor(pos, type, target) {
+	constructor(pos, type, target, enemies) {
 		super(pos);
 
 		this.target = target;
         this.type = type;
+        this.enemies = enemies;
 	}
 
 	update(delta) {
@@ -17,7 +18,15 @@ export default class Bullet extends Entity {
 		const len = Math.sqrt(dist.x*dist.x + dist.y*dist.y);
 
 		if(len < 40) {
-			// hit the bug
+			this.target.harm(this.type.damage, this.type.slow);
+
+            if(this.type.blast > 0) {
+                // blast animation ?
+                this.enemies.entities
+                    .filter(e => e !== this.target && e.position.dist(this.target.position) < this.blast)
+                    .forEach(e => e.harm(this.type.damage, this.type.slow));
+            }
+
 			this.parent.remove(this);
             return;
 		}
@@ -25,7 +34,6 @@ export default class Bullet extends Entity {
 		const dir = dist.quo(len);
 		this.rotation = Math.atan2(dist.y, dist.x);
 		this.position.add(dir.prd(speed * delta / 1000));
-
 	}
 
 	onDraw(ctx) {
