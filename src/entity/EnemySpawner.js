@@ -55,7 +55,7 @@ export default class EnemySpawner extends Entity {
 
 	removeGrub(grub) {
 		arrayRemove(this.grubs, grub);
-		grub.remove();
+		this.remove(grub);
 	}
 
 	addEnemy(enemy) {
@@ -65,6 +65,6 @@ export default class EnemySpawner extends Entity {
 
 	removeEnemy(enemy) {
 		arrayRemove(this.bugs, enemy);
-		enemy.remove();
+		this.remove(enemy);
 	}
 }
