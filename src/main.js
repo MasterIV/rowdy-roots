@@ -10,6 +10,7 @@ window.onload = () => {
 	// Preload graphics here
 	graphics.add('img/tower.png');
 	graphics.add('img/bug.png');
+	graphics.add('img/grub.png');
 
 	window.maploader = new TiledDataLoader();
 	window.maploader.preloadCompleteJSON('maps/level1.json', () => {
