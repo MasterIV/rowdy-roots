@@ -123,6 +123,7 @@ export default class Map extends Entity {
 		while(this.spawnPoints[index][1]) {
 			index = Math.floor(Math.random() * this.spawnPoints.length);
 		}
+		this.spawnPoints[index][1] = true;
 		return this.spawnPoints[index][0];
 	}
 }
