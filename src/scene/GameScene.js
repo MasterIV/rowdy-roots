@@ -33,7 +33,7 @@ export default class GameScene extends Scene {
 		this.debugSpawnEnemies();
 		this.viewport.add(new Turret(new V2(700, 700), {
 			damage: 4,
-			range: 800,
+			range: 350,
 			cooldown: 500,
 			slow: false,
 			blast: 50

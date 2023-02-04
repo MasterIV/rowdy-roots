@@ -11,9 +11,9 @@ export default class Resources extends Entity {
         this.resources = resources;
         this.add(new RectEntity(Zero(), new V2(200, 80)))
         
-        this.add(this.hp = new TextEntity(new V2(50, 60), resources.hp));
-        this.add(this.water = new TextEntity(new V2(100, 60), resources.water));
-        this.add(this.sun = new TextEntity(new V2(150, 60), resources.sun));
+        this.add(this.hp = new TextEntity(new V2(50, 50), resources.hp));
+        this.add(this.water = new TextEntity(new V2(100, 50), resources.water));
+        this.add(this.sun = new TextEntity(new V2(150, 50), resources.sun));
 	}
 
     update() {
