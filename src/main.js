@@ -11,6 +11,7 @@ window.onload = () => {
 	graphics.add('img/kodama_spritesheet.png');
 	graphics.add('img/arrow_projectile.png');
 	graphics.add('img/bug.png');
+	graphics.add('img/grub.png');
 
 	window.maploader = new TiledDataLoader();
 	window.maploader.preloadCompleteJSON('maps/level1.json', () => {

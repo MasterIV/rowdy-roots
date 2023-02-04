@@ -39,7 +39,7 @@
         "Terrain.json"
     ],
     "project": "tiled_project.tiled-project",
-    "property.type": "int",
+    "property.type": "string",
     "recentFiles": [
         "Terrain.json",
         "level1.json",

@@ -204,6 +204,12 @@
  "nextlayerid":7,
  "nextobjectid":6,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"name",
+         "type":"string",
+         "value":"Little Cribblers"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
  "tileheight":100,
