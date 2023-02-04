@@ -65,6 +65,7 @@ export default class GameScene extends Scene {
 		if (this.resourceTimer <= 0) {
 			this.resources.sun++;
 			this.resources.water += this.resources.claimedWater;
+			this.resourceTimer += 1000;
 		}
 	}
 
