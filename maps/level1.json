@@ -142,6 +142,10 @@
         {
          "firstgid":1,
          "source":"Terrain.json"
+        }, 
+        {
+         "firstgid":31,
+         "source":"Roots.json"
         }],
  "tilewidth":100,
  "type":"map",

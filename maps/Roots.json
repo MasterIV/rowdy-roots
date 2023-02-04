@@ -1,0 +1,14 @@
+{ "columns":15,
+ "image":"tileset_roots.png",
+ "imageheight":100,
+ "imagewidth":1500,
+ "margin":0,
+ "name":"Roots",
+ "spacing":0,
+ "tilecount":15,
+ "tiledversion":"1.9.2",
+ "tileheight":100,
+ "tilewidth":100,
+ "type":"tileset",
+ "version":"1.9"
+}

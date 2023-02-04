@@ -17,6 +17,7 @@ export default class Map extends Entity {
 		const levelDef = window.maploader.data[`maps/level${level}.json`];
 		this.tiledMap = new TiledMap(levelDef, Zero());
 		this.add(this.tiledMap);
+		this.tiledMap.staticRender(false);
 	}
 
 	click(pos) {
@@ -33,6 +34,42 @@ export default class Map extends Entity {
 
 	place(origin, points) {
 
+	}
+
+	// connections = { left: true, right: false, up: true, down: false }
+	getRootIndex(connections) {
+		let index = 0;
+		if (connections.up) index += 1;
+		if (connections.right) index += 2;
+		if (connections.down) index += 4;
+		if (connections.left) index += 8;
+		if (index != 0) {
+			let t;
+			for (const i in this.tiledMap.tilesets) {
+				if (this.tiledMap.tilesets[i].name == 'Roots') {
+					t = this.tiledMap.tilesets[i];
+				}
+			}
+			if (!t) {
+				console.error('Current level does not include tilesets "Roots"!');
+			}
+			else {
+				index += t.firstgid - 1;
+			}
+		}
+		return index;
+	}
+
+	setRoot(mapCoordinates, rootIndex) {
+		const index = this.getLayerDataIndexFromPos(mapCoordinates);
+		const layer = this.tiledMap.getLayer(this.root);
+
+		layer.data[index] = rootIndex;
+
+		const ctx = layer.img.getContext('2d');
+		ctx.clearRect(0, 0, layer.img.width, layer.img.height);
+
+		layer.staticRender(layer.img);
 	}
 
 	isWhat(mapCoordinates) {
