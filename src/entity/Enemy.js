@@ -15,14 +15,12 @@ export default class Enemy extends Entity {
 		this.rotation = Math.atan2(dist.y, dist.x);
 
 		const len = Math.sqrt(dist.x*dist.x + dist.y*dist.y);
-		console.log(dist, len);
 		this.direction = dist.quo(len);
-		console.log(this.direction);
 	}
 
 	update(delta) {
 		this.position.add(this.direction.prd(this.speed * delta / 1000));
-
+		// check if we reached the tree
 	}
 
 	onDraw(ctx) {
