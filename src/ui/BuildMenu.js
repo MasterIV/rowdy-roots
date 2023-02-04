@@ -6,14 +6,19 @@ import Turret from '../entity/Turret';
 import config from '../config';
 import towers from '../definition/towers';
 import graphic from 'tin-engine/core/graphic';
+import fonts from '../definition/fonts';
 
 
 class BuildButton extends Entity {
-    constructor(img, hover, callback) {
+    constructor(img, hover, callback, cost, res) {
         super();
         this.img = graphic[img];
         this.active = graphic[hover];
         this.callback = callback;
+
+        this.cost = cost;
+        this.res = res;
+
         this.setSize(this.img.width, this.img.height);
     }
 
@@ -23,22 +28,34 @@ class BuildButton extends Entity {
 
     onDraw(ctx) {
         ctx.drawImage(this.hover() ? this.active : this.img, 0, 0);
+
+        if(this.cost) {
+            let font = this.res.sun >= this.cost.sun ? fonts.costNormal : fonts.costError;
+            font.apply(ctx);
+            ctx.fillText(this.cost.sun, 46, 142);
+
+            font = this.res.water >= this.cost.water ? fonts.costNormal : fonts.costError;
+            font.apply(ctx);
+            ctx.fillText(this.cost.water, 180, 142);
+        }
     }
 }
 
 export default class BuildMenu extends Entity {
-	constructor(pos, cursor) {
+	constructor(pos, cursor, res) {
 		super(pos);
 
         this.visible = false;
         this.cursor = cursor;
+        this.res = res;
 
         const layout = new HorizontalLayout(Zero(), 0, 0);
 
         towers.forEach(t => layout.add(new BuildButton(
             `img/bottom_ui_${t.ui}_normal.png`, 
             `img/bottom_ui_${t.ui}_hover.png`, 
-            () => this.build(t)
+            () => this.build(t),
+            t.cost, res
         )));
 
         layout.add(new BuildButton(
@@ -54,7 +71,13 @@ export default class BuildMenu extends Entity {
 	}
 
     build(type) {
-        // check resources
+        for(let k in type.cost) 
+            if(this.res[k] < type.cost[k])
+                return;
+
+        for(let k in type.cost)
+            this.res[k] -= type.cost[k];
+
         const {w, h} = config.tile;
         const pos = this.cursor.field.prd(w).sum(new V2(w/2, h/2));
         const tower = new Turret(pos, type, this.parent.enemies);

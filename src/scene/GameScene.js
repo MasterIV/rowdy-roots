@@ -36,7 +36,7 @@ export default class GameScene extends Scene {
 		this.viewport.centerSelf();
 
 		this.add(new Resources(new V2(1080, 0), this.resources));
-		this.center(new BuildMenu(new V2(0, 516), this.cursor));
+		this.center(new BuildMenu(new V2(0, 516), this.cursor, this.resources));
 		this.add(new RootMenu(Zero(), this.cursor, levelData[level].shapes));
 		this.add(new CancelButton(new V2(0, 0), this.cursor));
 	}

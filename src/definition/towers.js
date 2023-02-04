@@ -10,6 +10,7 @@ export default [
 		'cooldown': 1000,
 		'slow': false,
 		'blast': 0,
+		'cost': {sun: 1, water: 1},
 	},
 	{
 		'id': 2,
@@ -22,6 +23,7 @@ export default [
 		'cooldown': 1000,
 		'slow': false,
 		'blast': 100,
+		'cost': {sun: 2, water: 2},
 	},
 	{
 		'id': 1,
@@ -34,6 +36,7 @@ export default [
 		'cooldown': 1500,
 		'slow': true,
 		'blast': 0,
+		'cost': {sun: 3, water: 3},
 	},
 	{
 		'id': 3,
@@ -46,5 +49,6 @@ export default [
 		'cooldown': 2000,
 		'slow': false,
 		'blast': 0,
+		'cost': {sun: 33, water: 33},
 	},
 ]
