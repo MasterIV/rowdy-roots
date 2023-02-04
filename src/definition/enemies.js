@@ -2,6 +2,7 @@ export default [
 	{
 		'id': 0,
 		'name': 'The simple Buggerino',
+		'description': 'Your average hungry bug. Medium speed and health.',
 		'graphic': 'img/bug_spritesheet.png',
 		'health': 10,
 		'speed': 40
@@ -9,21 +10,24 @@ export default [
 	{
 		'id': 1,
 		'name': 'Speedy Critty',
-		'graphic': '',
+		'description': 'Extra hungry bug! This fast bugger will quickly cause trouble.',
+		'graphic': 'img/bug_spritesheet.png',
 		'health': 5,
 		'speed': 120
 	},
 	{
 		'id': 2,
 		'name': 'Big Grub',
-		'graphic': '',
+		'description': 'The toughest and biggest bug. Not the fastet but can definitel tank some damage.',
+		'graphic': 'img/bug2_spritesheet.png',
 		'health': 25,
 		'speed': 30
 	},
 	{
 		'id': 3,
 		'name': 'Absolute Brain Bug',
-		'graphic': '',
+		'description': 'The ultimate bug! Tough and fast. This one is on the hunt for your tree and it is not afraid!',
+		'graphic': 'img/bug3_spritesheet.png',
 		'health': 100,
 		'speed': 50
 	},

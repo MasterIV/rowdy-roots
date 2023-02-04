@@ -2,6 +2,7 @@ export default [
 	{
 		'id': 0,
 		'name': 'Spear Chugger',
+		'description': 'The humble default. Average speed, range and damage.',
 		'graphic': 'img/kodama_spritesheet.png',
 		'projectile': 'img/arrow_projectile.png',
 		'ui': '1_spear',
@@ -15,6 +16,7 @@ export default [
 	{
 		'id': 2,
 		'name': 'Bomb Hauler',
+		'description': 'Slow firing and less damage than the default but damages a whole area instead of one bug!',
 		'graphic': 'img/kodama_aoe_spritesheet.png',
 		'projectile': 'img/arrow_projectile.png',
 		'ui': '2_aoe',
@@ -28,6 +30,7 @@ export default [
 	{
 		'id': 1,
 		'name': 'Slime Thrower',
+		'description': 'Less damage, slower rate of fire but slows down any enemy that was hit.',
 		'graphic': 'img/kodama_spritesheet.png',
 		'projectile': 'img/arrow_projectile.png',
 		'ui': '3_slow',
@@ -41,6 +44,7 @@ export default [
 	{
 		'id': 3,
 		'name': 'Precision Leafer',
+		'description': 'True long range specialist! Slowest rate of fire but highest damage and longest range.',
 		'graphic': 'img/kodama_spritesheet.png',
 		'projectile': 'img/arrow_projectile.png',
 		'ui': '4_sniper',

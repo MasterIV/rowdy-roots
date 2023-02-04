@@ -6,7 +6,9 @@ import {VerticalLayout} from 'tin-engine/basic/layout'
 import GameScene from './GameScene';
 import CreditsScene from './CreditsScene';
 import SlideInTopTransition from '../transition/SlideInTop';
+import SlideInBottomTransition from '../transition/SlideInBottom';
 import LevelsScene from './LevelsScene';
+import HelpScene from './HelpScene';
 import easing from 'tin-engine/definition/easing';
 
 export default class TitleScene extends Scene {
@@ -20,6 +22,9 @@ export default class TitleScene extends Scene {
 		this.layout.add(Button.create(Zero(), () => {
 			this.parent.goto(new SlideInTopTransition(new LevelsScene(), 1000, easing.OUTELASTIC));
 		}).rect(300, 50).text('Levels'));
+		this.layout.add(Button.create(Zero(), () => {
+			this.parent.goto(new SlideInBottomTransition(new HelpScene(), 1000, easing.OUTELASTIC));
+		}).rect(300, 50).text('Help'));
 		this.layout.add(Button.create(Zero(), () => this.parent.goto(new CreditsScene())).rect(300, 50).text('Credits'));
 		if (config.debug) {
 			this.layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(0))).rect(300, 50).text('Debug: Level 1'));
