@@ -18,7 +18,8 @@ export default class GameScene extends Scene {
 	constructor(level) {
 		super();
 		this.setSize(config.screen.w, config.screen.h);
-		this.resources = {hp: 10, water: 0, sun: 2};
+		this.resources = {hp: 10, water: 0, sun: 15, claimedWater: 0 };
+		this.resourceTimer = 1000;
 
 		this.viewport = new Viewport(true);
 		this.add(this.viewport);
@@ -57,6 +58,19 @@ export default class GameScene extends Scene {
 	onDraw(ctx) {
 		ctx.fillStyle = 'white';
 		ctx.fillRect(0, 0, this.size.x, this.size.y);
+	}
+
+	onUpdate(delta) {
+		this.resourceTimer -= delta;
+		if (this.resourceTimer <= 0) {
+			this.resources.sun++;
+			this.resources.water += this.resources.claimedWater;
+			this.resourceTimer += 1000;
+		}
+	}
+
+	claimWater() {
+		this.resources.claimedWater++;
 	}
 
 	levelWon() {

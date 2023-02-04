@@ -20,7 +20,8 @@ export default [
 					[
 						{
 							'type': Enemies[0],
-							'count': 2
+							'count': 2,
+							'delay': 500,
 						},
 					],
 				],
@@ -31,11 +32,15 @@ export default [
 					[
 						{
 							'type': Enemies[0],
-							'count': 4
+							'count': 4,
+							'delay': 500,
 						},
+					],
+					[
 						{
 							'type': Enemies[0],
-							'count': 4
+							'count': 4,
+							'delay': 500,
 						},
 					],
 				],
@@ -60,7 +65,8 @@ export default [
 					[
 						{
 							'type': Enemies[0],
-							'count': 2
+							'count': 2,
+							'delay': 500,
 						},
 					],
 				],

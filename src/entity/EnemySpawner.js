@@ -33,6 +33,7 @@ export default class EnemySpawner extends Entity {
 	}
 
 	spawnGrubs() {
+		const target = this.map.size.clone().div(2);
 		const wave = this.waves[this.nextWave];
 		this.nextWave++;
 
@@ -40,17 +41,16 @@ export default class EnemySpawner extends Entity {
 		this.map.resetSpawnPositions();
 		wave.enemies.forEach(nest => {
 			const pos = this.map.getRandomSpawnPosition();
-			const grub = new Grub(pos, nest);
+			const grub = new Grub(pos, nest, target);
 			this.grubs.push(grub);
 			this.add(grub);
 		});
 	}
 
 	hatchGrubs() {
-		const target = this.map.size.clone().div(2);
-		while(this.grubs[0]) {
-			this.grubs[0].hatch(target);
-		}
+		this.grubs.forEach(grub => {
+			grub.hatch();
+		})
 	}
 
 	removeGrub(grub) {
