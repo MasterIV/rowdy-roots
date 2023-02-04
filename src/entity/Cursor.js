@@ -67,7 +67,7 @@ export default class Cursor extends Entity {
 				this.hide();
 				return true;
 			}
-		} else if(this.map.isRoot(pos) && !this.map.hasTower(pos)) {
+		} else if(this.map.isRoot(pos) && !this.map.hasTower(pos) && !this.map.isTree(pos)) {
 			this.field = pos;
 		}
 	}

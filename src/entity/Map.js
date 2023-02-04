@@ -60,6 +60,10 @@ export default class Map extends Entity {
 		return this.get(layers.root, pos);
 	}
 
+	isTree(pos) {
+		return this.get(layers.tree, pos);
+	}
+
 	addTower(pos, tower) {
 		this.towers[this.posToIndex(pos)] = tower;
 	}
