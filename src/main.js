@@ -14,14 +14,18 @@ window.onload = () => {
 	graphics.add('img/splatter.png');
 	graphics.add('img/explosion.png');
 	graphics.add('img/grubs.png');
+	graphics.add(`img/bottom_ui_5_cancel_normal.png`);
+	graphics.add(`img/bottom_ui_5_cancel_hover.png`);
 	
 	enemies.forEach(e => {
 		if (e.graphic) graphics.add(e.graphic);
 	});
 
 	towers.forEach(t => {
-		if (t.graphic) graphics.add(t.graphic);
-		if (t.projectile) graphics.add(t.projectile);
+		graphics.add(t.graphic);
+		graphics.add(t.projectile);
+		graphics.add(`img/bottom_ui_${t.ui}_normal.png`);
+		graphics.add(`img/bottom_ui_${t.ui}_hover.png`);
 	});
 
 	window.maploader = new TiledDataLoader();

@@ -1,11 +1,30 @@
 import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
 
-import Button from 'tin-engine/basic/button';
 import { HorizontalLayout } from 'tin-engine/basic/layout';
 import Turret from '../entity/Turret';
 import config from '../config';
 import towers from '../definition/towers';
+import graphic from 'tin-engine/core/graphic';
+
+
+class BuildButton extends Entity {
+    constructor(img, hover, callback) {
+        super();
+        this.img = graphic[img];
+        this.active = graphic[hover];
+        this.callback = callback;
+        this.setSize(this.img.width, this.img.height);
+    }
+
+    onClick() {
+        this.callback();
+    }
+
+    onDraw(ctx) {
+        ctx.drawImage(this.hover() ? this.active : this.img, 0, 0);
+    }
+}
 
 export default class BuildMenu extends Entity {
 	constructor(pos, cursor) {
@@ -14,8 +33,20 @@ export default class BuildMenu extends Entity {
         this.visible = false;
         this.cursor = cursor;
 
-        const layout = new HorizontalLayout(Zero(), 0, 50);
-        towers.forEach(type => layout.add(Button.create(Zero(), () => this.build(type)).rect(200, 100)));
+        const layout = new HorizontalLayout(Zero(), 0, 0);
+
+        towers.forEach(t => layout.add(new BuildButton(
+            `img/bottom_ui_${t.ui}_normal.png`, 
+            `img/bottom_ui_${t.ui}_hover.png`, 
+            () => this.build(t)
+        )));
+
+        layout.add(new BuildButton(
+            `img/bottom_ui_5_cancel_normal.png`, 
+            `img/bottom_ui_5_cancel_hover.png`, 
+            () => this.cursor.hide(),
+        ));
+
         layout.inheritSize();
 
         this.add(layout);

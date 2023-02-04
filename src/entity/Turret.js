@@ -27,7 +27,7 @@ export default class Turret extends Entity {
 
 		this.cooldown -= delta;
 		if(this.cooldown < 0) {
-			const targets = this.enemies.entities.filter(e => e.position.dist(this.position) < this.type.range);
+			const targets = this.enemies.bugs.filter(e => e.position.dist(this.position) < this.type.range);
 
 			if(!targets.length) {
 				// no targets in range, let's check again in 50ms
