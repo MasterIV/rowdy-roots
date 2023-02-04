@@ -6,7 +6,6 @@ import config from '../config';
 export default class Cursor extends Entity {
 	constructor(map) {
 		super();
-
 		this.layout = null;
 		this.offset = null;
 		this.map = map;
@@ -23,7 +22,7 @@ export default class Cursor extends Entity {
 			h * config.tile.h / 2,
 		);
 
-		for(let x=0, x<w; x++)
+		for(let x=0; x<w; x++)
 			for(let y=0; y<h; y++)
 				if(shape[y][x])
 					this.layout.push(new V2(x, y));

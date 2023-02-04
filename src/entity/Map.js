@@ -18,6 +18,8 @@ export default class Map extends Entity {
 		this.tiledMap = new TiledMap(levelDef, Zero());
 		this.add(this.tiledMap);
 		this.tiledMap.staticRender(false);
+
+		this.inheritSize();
 	}
 
 	click(pos) {

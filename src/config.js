@@ -1,6 +1,6 @@
 export default {
-	screen: {w: 640, h: 480},
+	screen: {w: 1280, h: 720},
 	tile: {w: 100, h: 100},
-	scale: false,
+	scale: true,
 	smooth: false,
 };
