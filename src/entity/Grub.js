@@ -26,6 +26,5 @@ export default class Grub extends Entity {
 		});
 
 		this.parent.removeGrub(this);
-		this.remove();
 	}
 }
