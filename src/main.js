@@ -11,7 +11,7 @@ window.onload = () => {
 	// Preload graphics here
 	graphics.add('img/kodama_spritesheet.png');
 	graphics.add('img/arrow_projectile.png');
-	graphics.add('img/bug.png');
+	graphics.add('img/bug_spritesheet.png');
 	graphics.add('img/grubs.png');
 	enemyData.forEach(enemyType => {
 		if (enemyType.graphic) graphics.add(enemyType.graphic);

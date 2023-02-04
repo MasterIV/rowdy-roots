@@ -1,6 +1,7 @@
 import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
-import graphic from 'tin-engine/core/graphic';
+import config from '../config';
+import Animation from 'tin-engine/lib/animation';
 
 const slowDuration = 2000;
 
@@ -15,10 +16,14 @@ export default class Enemy extends Entity {
 		this.slowed = 0;
 
 		const dist = target.dif(pos);
-		this.rotation = Math.atan2(dist.y, dist.x);
-
 		const len = Math.sqrt(dist.x*dist.x + dist.y*dist.y);
+		const angle = Math.atan2(dist.y, dist.x);
 		this.direction = dist.quo(len);
+
+		const {w, h} = config.tile;
+		this.animation = new Animation('img/bug_spritesheet.png', new V2(w/-2, h/-2), new V2(4,8), 150, true);
+		this.animation.state = (8 + Math.round( 4* angle / Math.PI )) % 8;
+		this.add(this.animation);
 	}
 
 	harm(dmg, slow) {
@@ -34,7 +39,7 @@ export default class Enemy extends Entity {
 		}
 	}
 
-	update(delta) {
+	onUpdate(delta) {
 		if(this.slowed > 0) {
 			this.slowed -= delta;
 			delta *= .5;
@@ -46,11 +51,5 @@ export default class Enemy extends Entity {
 			// eat the tree
 			this.parent.removeEnemy(this);
 		}
-	}
-
-	onDraw(ctx) {
-		ctx.rotate(this.rotation);
-		ctx.translate(-50, -50);
-		ctx.drawImage(graphic[this.img], 0, 0);
 	}
 }

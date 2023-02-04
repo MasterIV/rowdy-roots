@@ -1,8 +1,8 @@
 import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
-import graphic from 'tin-engine/core/graphic';
 import config from '../config';
 import Bullet from './Bullet';
+import Animation from 'tin-engine/lib/animation';
 
 export default class Turret extends Entity {
 	constructor(pos, type, enemies) {
@@ -10,22 +10,21 @@ export default class Turret extends Entity {
 		this.type = type;
 		this.enemies = enemies;
 		this.cooldown = 0;
+
+		const {w, h} = config.tile;
+		this.animation = new Animation('img/kodama_spritesheet.png', new V2(w/-2, h/-2), new V2(4,8), 150, true);
+		this.add(this.animation);
 	}
 
-	onDraw(ctx) {
+	onUpdate(delta) {
 		const {w, h} = config.tile;
-		let angle = 0;
 
 		if(this.target) {
-			const dist = this.target.position.dif(this.position.sum(new V2(w/2, h/2)));
-			angle = Math.atan2(dist.y, dist.x);
+			const dist = this.target.position.dif(this.position);
+			const angle = Math.atan2(dist.y, dist.x);
+			this.animation.state = (8 + Math.round( 4* angle / Math.PI )) % 8;
 		} 
 
-		const frame = (8 + Math.round( 4* angle / Math.PI )) % 8;
-		ctx.drawImage(graphic['img/kodama_spritesheet.png'], 0, frame*h, w, h, w/-2, h/-2, w, h);
-	}
-
-	update(delta) {
 		this.cooldown -= delta;
 		if(this.cooldown < 0) {
 			const targets = this.enemies.entities.filter(e => e.position.dist(this.position) < this.type.range);
