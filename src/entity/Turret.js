@@ -3,10 +3,11 @@ import V2, {Zero} from 'tin-engine/geo/v2';
 import graphic from 'tin-engine/core/graphic';
 
 export default class Turret extends Entity {
-	constructor(pos) {
+	constructor(pos, type, enemies) {
 		super(pos);
-
-
+		this.type = type;
+		this.enemies = enemies;
+		this.cooldown = 0;
 	}
 
 	click(pos) {
@@ -21,6 +22,9 @@ export default class Turret extends Entity {
 	}
 
 	update(delta) {
-
+		this.cooldown -= delta;
+		if(this.cooldown < 0) {
+			
+		}
 	}
 }
