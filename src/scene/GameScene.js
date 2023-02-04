@@ -25,7 +25,7 @@ export default class GameScene extends Scene {
 		this.viewport.add(this.cursor);
 
 		const center = this.map.size.quo(2);
-		const regular = {hp: 10, speed: 20};
+		const regular = {hp: 10, speed: 50};
 
 		this.enemies = new Entity();
 		this.enemies.add(new Enemy(new V2(200, 200), regular, center));
@@ -37,8 +37,8 @@ export default class GameScene extends Scene {
 		this.viewport.dragable(true);
 		this.viewport.centerSelf();
 
-		const keys = Object.keys(shapes);
-		this.add(Button.create(Zero(), () => this.cursor.setShape(shapes[keys[(Math.random()*keys.length)|0]])).rect(100, 100));
+		const s = shapes['level' + level];
+		this.add(Button.create(Zero(), () => this.cursor.setShape(s[(Math.random()*s.length)|0])).rect(100, 100));
 
 	}
 

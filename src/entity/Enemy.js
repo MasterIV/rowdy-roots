@@ -13,11 +13,15 @@ export default class Enemy extends Entity {
 
 		const dist = target.dif(pos);
 		this.rotation = Math.atan2(dist.y, dist.x);
-		this.direction = V2.fromRad(this.rotation, 1);
+
+		const len = Math.sqrt(dist.x*dist.x + dist.y*dist.y);
+		console.log(dist, len);
+		this.direction = dist.quo(len);
+		console.log(this.direction);
 	}
 
 	update(delta) {
-		//this.position.add(this.direction.prd(this.speed * delta));
+		this.position.add(this.direction.prd(this.speed * delta / 1000));
 
 	}
 
