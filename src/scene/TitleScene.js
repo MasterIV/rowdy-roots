@@ -16,6 +16,9 @@ export default class TitleScene extends Scene {
 		// add buttons to main menu
 		layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene())).rect(300, 50).text('Start'));
 		layout.add(Button.create(Zero(), () => this.parent.goto(new CreditsScene())).rect(300, 50).text('Credits'));
+		if (config.debug) {
+			layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(1))).rect(300, 50).text('Debug: Level 1'));
+		}
 		// horizontally center menu on the scene
 		this.center(layout);
 	}
