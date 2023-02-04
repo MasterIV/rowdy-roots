@@ -57,7 +57,7 @@ export default class GameScene extends Scene {
 		ctx.fillRect(0, 0, this.size.x, this.size.y);
 	}
 
-	levelOne() {
+	levelWon() {
 		this.parent.goto(new TitleScene());
 	}
 }
