@@ -3,4 +3,5 @@ export default {
 	tile: {w: 100, h: 100},
 	scale: true,
 	smooth: false,
+	debug: true,
 };

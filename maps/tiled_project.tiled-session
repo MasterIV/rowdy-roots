@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "level1.json",
+    "activeFile": "Terrain.json",
     "expandedProjectPaths": [
         "."
     ],
@@ -20,11 +20,11 @@
             "scaleInEditor": 1
         },
         "level1.json": {
-            "scale": 0.26093333333333335,
-            "selectedLayer": 4,
+            "scale": 0.5,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 804.8032703117017,
-                "y": 762.6469085334697
+                "x": 588,
+                "y": 870
             }
         }
     },
@@ -36,13 +36,14 @@
     "map.width": 15,
     "openFiles": [
         "level1.json",
-        "Roots.json"
+        "Terrain.json"
     ],
     "project": "tiled_project.tiled-project",
+    "property.type": "int",
     "recentFiles": [
-        "Roots.json",
+        "Terrain.json",
         "level1.json",
-        "Terrain.json"
+        "Roots.json"
     ],
     "tileset.lastUsedFormat": "json",
     "tileset.tileSize": {
