@@ -2,7 +2,8 @@ export default [
 	{
 		'id': 0,
 		'name': 'Spear Chugger',
-		'graphic': 'tower.png',
+		'graphic': 'img/kodama_spritesheet.png',
+		'projectile': 'img/arrow_projectile.png',
 		'damage': 5,
 		'range': 350,
 		'cooldown': 1000,
@@ -12,7 +13,8 @@ export default [
 	{
 		'id': 1,
 		'name': 'Slime Thrower',
-		'graphic': 'tower.png',
+		'graphic': 'img/kodama_spritesheet.png',
+		'projectile': 'img/arrow_projectile.png',
 		'damage': 4,
 		'range': 350,
 		'cooldown': 1500,
@@ -22,7 +24,8 @@ export default [
 	{
 		'id': 2,
 		'name': 'Bomb Hauler',
-		'graphic': 'tower.png',
+		'graphic': 'img/kodama_aoe_spritesheet.png',
+		'projectile': 'img/arrow_projectile.png',
 		'damage': 3,
 		'range': 350,
 		'cooldown': 1000,
@@ -32,7 +35,8 @@ export default [
 	{
 		'id': 3,
 		'name': 'Precision Leafer',
-		'graphic': 'tower.png',
+		'graphic': 'img/kodama_spritesheet.png',
+		'projectile': 'img/arrow_projectile.png',
 		'damage': 8,
 		'range': 550,
 		'cooldown': 2000,

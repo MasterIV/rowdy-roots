@@ -5,7 +5,7 @@ import Button from 'tin-engine/basic/button';
 import {VerticalLayout, HorizontalLayout} from 'tin-engine/basic/layout'
 import GameScene from './GameScene';
 import Fonts from '../definition/fonts';
-import levelData from '../leveldata';
+import levelData from '../definition/levels';
 
 export default class LevelsScene extends Scene {
 	constructor() {

@@ -2,7 +2,7 @@ export default [
 	{
 		'id': 0,
 		'name': 'The simple Buggerino',
-		'graphic': 'img/bug.png',
+		'graphic': 'img/bug_spritesheet.png',
 		'health': 10,
 		'speed': 40
 	},

@@ -5,7 +5,7 @@ import Button from 'tin-engine/basic/button';
 import { HorizontalLayout } from 'tin-engine/basic/layout';
 import Turret from '../entity/Turret';
 import config from '../config';
-import towerdata from '../towerdata';
+import towers from '../definition/towers';
 
 export default class BuildMenu extends Entity {
 	constructor(pos, cursor) {
@@ -15,7 +15,7 @@ export default class BuildMenu extends Entity {
         this.cursor = cursor;
 
         const layout = new HorizontalLayout(Zero(), 0, 50);
-        towerdata.forEach(type => layout.add(Button.create(Zero(), () => this.build(type)).rect(200, 100)));
+        towers.forEach(type => layout.add(Button.create(Zero(), () => this.build(type)).rect(200, 100)));
         layout.inheritSize();
 
         this.add(layout);

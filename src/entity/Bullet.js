@@ -2,6 +2,7 @@ import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import graphic from 'tin-engine/core/graphic';
 import config from '../config';
+import Animation from 'tin-engine/lib/animation';
 
 const speed = 500;
 
@@ -42,6 +43,6 @@ export default class Bullet extends Entity {
 	onDraw(ctx) {
 		ctx.rotate(this.rotation);
 		ctx.translate(-25, -25);
-		ctx.drawImage(graphic['img/arrow_projectile.png'], 0, 0);
+		ctx.drawImage(graphic[this.type.projectile], 0, 0);
 	}
 }

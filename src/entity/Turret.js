@@ -12,7 +12,7 @@ export default class Turret extends Entity {
 		this.cooldown = 0;
 
 		const {w, h} = config.tile;
-		this.animation = new Animation('img/kodama_spritesheet.png', new V2(w/-2, h/-2), new V2(4,8), 150, true);
+		this.animation = new Animation(type.graphic, new V2(w/-2, h/-2), new V2(4,8), 150, true);
 		this.add(this.animation);
 	}
 

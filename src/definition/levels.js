@@ -1,5 +1,5 @@
 import Shapes from './shapes';
-import Enemies from './enemydata';
+import Enemies from './enemies';
 
 export default [
 	{
