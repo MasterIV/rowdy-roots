@@ -4,4 +4,5 @@ export default {
 	scale: true,
 	smooth: false,
 	debug: true,
+	levels: 1,
 };
