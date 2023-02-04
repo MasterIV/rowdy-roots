@@ -25,6 +25,12 @@ export default class Map extends Entity {
 		const levelDef = window.maploader.data[`maps/level${level}.json`];
 		this.tiledMap = new TiledMap(levelDef, Zero());
 
+		this.spawnPoints = [];
+		const spawnLayer = this.tiledMap.getLayer('Spawns');
+		for (let i = 0; i < spawnLayer.objects.length; i++) {
+			this.spawnPoints.push([spawnLayer.objects[i].data, false]);
+		}
+
 		this.add(this.tiledMap);
 		this.tiledMap.staticRender(false);
 		this.inheritSize();
@@ -104,5 +110,19 @@ export default class Map extends Entity {
 		const ctx = l.img.getContext('2d');
 		ctx.clearRect(0, 0, l.img.width, l.img.height);
 		l.render(ctx);
+	}
+
+	resetSpawnPositions() {
+		for (let i = 0; i < this.spawnPoints.length; i++) {
+			this.spawnPoints[i][1] = false;
+		}
+	}
+
+	getRandomSpawnPosition() {
+		let index = 0;
+		while(this.spawnPoints[index][1]) {
+			index = Math.floor(Math.random() * this.spawnPoints.length);
+		}
+		return this.spawnPoints[index][0];
 	}
 }
