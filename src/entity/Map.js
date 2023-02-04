@@ -48,6 +48,10 @@ export default class Map extends Entity {
 		return this.get(layers.rock, pos) || this.get(layers.root, pos);
 	}
 
+	isRoot(pos) {
+		return this.get(layers.root, pos);
+	}
+
 	place(origin, points) {
 		const l = this.tiledMap.getLayer(layers.root);
 		const d = l.data.data;

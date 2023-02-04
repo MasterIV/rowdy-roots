@@ -1,5 +1,4 @@
 import Entity from 'tin-engine/basic/entity';
-import RectEntity from 'tin-engine/basic/rect';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import config from '../config';
 
@@ -7,7 +6,8 @@ export default class Cursor extends Entity {
 	constructor(map) {
 		super();
 		this.layout = null;
-		this.offset = null;
+		this.offset = Zero();
+		this.field = null;
 		this.map = map;
 	}
 
@@ -30,6 +30,8 @@ export default class Cursor extends Entity {
 
 	hide() {
 		this.layout = null;
+		this.field = null;
+		this.offset = Zero();
 	}
 
 	draw(ctx) {
@@ -42,12 +44,16 @@ export default class Cursor extends Entity {
 				ctx.fillStyle = allred || this.map.isBlocked(dst) ? 'rgba(255,55,55,0.5)' : 'rgba(255,255,255,0.5)';
 				ctx.fillRect(dst.x * config.tile.w, dst.y * config.tile.h, config.tile.w, config.tile.h);
 			});
+		} else if(this.field) {
+			ctx.fillStyle = 'rgba(55,55,255,0.3)';
+			ctx.fillRect(this.field.x * config.tile.w, this.field.y * config.tile.h, config.tile.w, config.tile.h);
 		}
 	}
 
 	click() {
+		const pos = this.map.getPos(this.map.relativeMouse().dif(this.offset));
+
 		if (this.layout) {
-			const pos = this.map.getPos(this.map.relativeMouse().dif(this.offset));
 			const connected = this.map.isConnected(pos, this.layout);
 			const blocked = this.layout.map(p => this.map.isBlocked(pos.sum(p))).reduce((a,b) => a || b, false);
 
@@ -56,6 +62,8 @@ export default class Cursor extends Entity {
 				this.hide();
 				return true;
 			}
+		} else if(this.map.isRoot(pos)) {
+			this.field = pos;
 		}
 	}
 }

@@ -8,7 +8,7 @@ import {TiledDataLoader} from 'tin-engine/lib/map';
 
 window.onload = () => {
 	// Preload graphics here
-	// graphics.add('img/some_asset.png');
+	graphics.add('img/tower.png');
 
 	window.maploader = new TiledDataLoader();
 	window.maploader.preloadCompleteJSON('maps/level1.json', () => {

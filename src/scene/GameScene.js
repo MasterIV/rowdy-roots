@@ -6,6 +6,7 @@ import config from '../config';
 import shapes from '../shapes';
 import Button from 'tin-engine/basic/button';
 import V2, {Zero} from 'tin-engine/geo/v2';
+import Turret from '../entity/Turret';
 
 export default class GameScene extends Scene {
 	constructor(level) {
@@ -22,6 +23,9 @@ export default class GameScene extends Scene {
 
 		this.cursor = new Cursor(this.map);
 		this.viewport.add(this.cursor);
+
+
+		this.viewport.add(new Turret(new V2(750, 750)));
 
 		this.viewport.dragable(true);
 		this.viewport.centerSelf();
