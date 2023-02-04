@@ -18,8 +18,8 @@ export default class Cursor extends Entity {
 		const h = shape.length;
 
 		this.offset = new V2(
-			w * config.tile.w / 2,
-			h * config.tile.h / 2,
+			Math.floor(w / 2) * config.tile.w ,
+			Math.floor(h / 2) * config.tile.h ,
 		);
 
 		for(let x=0; x<w; x++)
@@ -34,18 +34,28 @@ export default class Cursor extends Entity {
 
 	draw(ctx) {
 		if (this.layout) {
-			const pos = this.map.getPos(self.map.relativeMouse().diff(this.offset));
-			const allred = !this.map.isConnected(pos, self.layout);
+			const pos = this.map.getPos(this.map.relativeMouse().dif(this.offset));
+			const allred = !this.map.isConnected(pos, this.layout);
 
-			this.layout.foreEach(p => {
-				const {x, y} = pos.sum(p);
-				ctx.fillStyle = allred || this.map.get(x, y) ? 'rgba(255,55,55,0.5)' : 'rgba(255,255,255,0.5)';
-				ctx.fillRect(x * config.tile.w, y * config.tile.h, config.tile.w, config.tile.h);
+			this.layout.forEach(p => {
+				const dst = pos.sum(p);
+				ctx.fillStyle = allred || this.map.isBlocked(dst) ? 'rgba(255,55,55,0.5)' : 'rgba(255,255,255,0.5)';
+				ctx.fillRect(dst.x * config.tile.w, dst.y * config.tile.h, config.tile.w, config.tile.h);
 			});
 		}
 	}
 
-	click(pos) {
+	click() {
+		if (this.layout) {
+			const pos = this.map.getPos(this.map.relativeMouse().dif(this.offset));
+			const connected = this.map.isConnected(pos, this.layout);
+			const blocked = this.layout.map(p => this.map.isBlocked(pos.sum(p))).reduce((a,b) => a || b, false);
 
+			if(connected && !blocked) {
+				this.map.place(pos, this.layout);
+				this.hide();
+				return true;
+			}
+		}
 	}
 }

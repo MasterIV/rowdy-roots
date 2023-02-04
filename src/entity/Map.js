@@ -3,27 +3,31 @@ import RectEntity from 'tin-engine/basic/rect';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import {TiledMap} from 'tin-engine/lib/map';
 
+const layers = {
+	root: 'Roots',
+	tree: 'Tree',
+	rock: 'Rocks',
+	soil: 'Background',
+	resource: 'Resources',
+}
+
+const direction = {
+	up: new V2(-1, 0),
+	down: new V2( 1, 0),
+	left: new V2(0, -1),
+	right: new V2(0,  1),
+}
+
 export default class Map extends Entity {
 	constructor(level) {
 		super();
 
-		this.root = 'Roots';
-		this.tree = 'Tree';
-		this.rock = 'Rocks';
-		this.dirt = 'Background';
-		this.resource = 'Resources';
-		this.mapBlockingLayers = [this.root, this.tree, this.rock];
-
 		const levelDef = window.maploader.data[`maps/level${level}.json`];
 		this.tiledMap = new TiledMap(levelDef, Zero());
+
 		this.add(this.tiledMap);
 		this.tiledMap.staticRender(false);
-
 		this.inheritSize();
-	}
-
-	click(pos) {
-
 	}
 
 	getPos(pixelCoordinates) {
@@ -31,14 +35,74 @@ export default class Map extends Entity {
 	}
 
 	isConnected(origin, points) {
+		return points.map(p => {
+			const pos = p.sum(origin);
+			return this.get(layers.root, pos.sum(direction.left)) ||
+				this.get(layers.root, pos.sum(direction.right)) ||
+				this.get(layers.root, pos.sum(direction.down)) ||
+				this.get(layers.root, pos.sum(direction.up)) 
+		}).reduce((a,b) => a || b, false);
+	}
 
+	isBlocked(pos) {
+		return this.get(layers.rock, pos) || this.get(layers.root);
 	}
 
 	place(origin, points) {
+		const l = this.tiledMap.getLayer(layers.root);
+
+		// place new roots
+		points.forEach(p => {
+			const i = this.posToIndex(p.sum(origin));
+			l.data.data[i] = 1;
+		});
+
+		// recalculate root connections
+		for(let x = 0; x < this.tiledMap.data.width; x++)
+			for(let y = 0; y < this.tiledMap.data.height; y++) {
+				const p = new V2(x, y);
+				const i = this.posToIndex(p);
+				const d = l.data.data;
+
+				if(d[i]) {
+					d[i] = 
+						1 * (d[this.posToIndex(p.sum(direction.up))] > 0) +
+						2 * (d[this.posToIndex(p.sum(direction.right))] > 0) +
+						4 * (d[this.posToIndex(p.sum(direction.down))] > 0) +
+						8 * (d[this.posToIndex(p.sum(direction.left))] > 0);
+				}
+			}
+
+		this.redraw(layers.root);
+	}
+
+	// this code should have been in the framework
+	get(layer, pos) {
+		if(
+			pos.x < 0 || 
+			pos.y < 0 || 
+			pos.x >= this.tiledMap.data.width || 
+			pos.y >= this.tiledMap.data.height
+		) return null;
+
+		const i = this.posToIndex(pos);
+		const l = this.tiledMap.getLayer(layer);
+		return l.data.data[i];
 
 	}
 
-	// connections = { left: true, right: false, up: true, down: false }
+	posToIndex(pos) {
+		return pos.x + pos.y * this.tiledMap.data.width;
+	}
+
+	redraw(layer) {
+		const l = this.tiledMap.getLayer(layer);
+		const ctx = l.img.getContext('2d');
+		ctx.clearRect(0, 0, l.img.width, l.img.height);
+		l.staticRender(l.img);
+	}
+
+	/* connections = { left: true, right: false, up: true, down: false }
 	getRootIndex(connections) {
 		let index = 0;
 		if (connections.up) index += 1;
@@ -119,7 +183,5 @@ export default class Map extends Entity {
 		return value;
 	}
 
-	getLayerDataIndexFromPos(mapCoordinates) {
-		return mapCoordinates.x + mapCoordinates.y * this.tiledMap.data.width;
-	}
+	*/
 }
