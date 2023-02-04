@@ -1,6 +1,7 @@
 import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import graphic from 'tin-engine/core/graphic';
+import config from '../config';
 
 const speed = 500;
 
@@ -21,7 +22,9 @@ export default class Bullet extends Entity {
 			this.target.harm(this.type.damage, this.type.slow);
 
             if(this.type.blast > 0) {
-                // blast animation ?
+                const {w, h} = config.tile;
+                this.parent.add(new Animation('img/explosion.png', this.target.position.sum(new V2(w/-2, h/-2)), 6, 50, false));
+
                 this.enemies.entities
                     .filter(e => e !== this.target && e.position.dist(this.target.position) < this.blast)
                     .forEach(e => e.harm(this.type.damage, this.type.slow));

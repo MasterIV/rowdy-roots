@@ -19,12 +19,13 @@ const direction = {
 }
 
 export default class Map extends Entity {
-	constructor(map) {
+	constructor(map, claimWater) {
 		super();
 
 		const levelDef = JSON.parse(JSON.stringify(window.maploader.data[map]));
 		this.tiledMap = new TiledMap(levelDef, Zero());
 		this.towers = [];
+		this.claimWater = claimWater;
 
 		this.spawnPoints = [];
 		const spawnLayer = this.tiledMap.getLayer('Spawns');
@@ -68,13 +69,14 @@ export default class Map extends Entity {
 	}
 
 	place(origin, points) {
-		const l = this.tiledMap.getLayer(layers.root);
-		const d = l.data.data;
+		const r = this.tiledMap.getLayer(layers.root).data.data;
+		const w = this.tiledMap.getLayer(layers.resource).data.data;
 
 		// place new roots
 		points.forEach(p => {
 			const i = this.posToIndex(p.sum(origin));
-			d[i] = 1;
+			if(w[i]) this.claimWater();
+			r[i] = 1;
 		});
 
 		// recalculate root connections
@@ -83,12 +85,12 @@ export default class Map extends Entity {
 				const p = new V2(x, y);
 				const i = this.posToIndex(p);
 
-				if(d[i]) {
-					d[i] = 30 +
-						1 * (d[this.posToIndex(p.sum(direction.up))] > 0) +
-						2 * (d[this.posToIndex(p.sum(direction.right))] > 0) +
-						4 * (d[this.posToIndex(p.sum(direction.down))] > 0) +
-						8 * (d[this.posToIndex(p.sum(direction.left))] > 0);
+				if(r[i]) {
+					r[i] = 30 +
+						1 * (r[this.posToIndex(p.sum(direction.up))] > 0) +
+						2 * (r[this.posToIndex(p.sum(direction.right))] > 0) +
+						4 * (r[this.posToIndex(p.sum(direction.down))] > 0) +
+						8 * (r[this.posToIndex(p.sum(direction.left))] > 0);
 				}
 			}
 

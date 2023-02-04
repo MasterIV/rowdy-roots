@@ -12,7 +12,10 @@ window.onload = () => {
 	graphics.add('img/kodama_spritesheet.png');
 	graphics.add('img/arrow_projectile.png');
 	graphics.add('img/bug_spritesheet.png');
+	graphics.add('img/splatter.png');
+	graphics.add('img/explosion.png');
 	graphics.add('img/grubs.png');
+	
 	enemyData.forEach(enemyType => {
 		if (enemyType.graphic) graphics.add(enemyType.graphic);
 	});

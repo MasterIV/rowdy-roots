@@ -24,7 +24,7 @@ export default class GameScene extends Scene {
 		this.viewport = new Viewport(true);
 		this.add(this.viewport);
 
-		this.map = new Map(levelData[level].map);
+		this.map = new Map(levelData[level].map, () => this.resources.claimedWater++);
 		this.viewport.add(this.map);
 
 		this.cursor = new Cursor(this.map);
@@ -67,10 +67,6 @@ export default class GameScene extends Scene {
 			this.resources.water += this.resources.claimedWater;
 			this.resourceTimer += 1000;
 		}
-	}
-
-	claimWater() {
-		this.resources.claimedWater++;
 	}
 
 	levelWon() {

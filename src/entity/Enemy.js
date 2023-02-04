@@ -27,6 +27,9 @@ export default class Enemy extends Entity {
 	}
 
 	harm(dmg, slow) {
+		// already dead ?
+		if(this.hp < 1) return;
+		
 		this.hp -= dmg;
 
 		if(slow) {
@@ -34,7 +37,8 @@ export default class Enemy extends Entity {
 		}
 
 		if(this.hp < 1) {
-			// death animation ?
+			const {w, h} = config.tile;
+			this.parent.add(new Animation('img/splatter.png', this.position.sum(new V2(w/-2, h/-2)), 5, 50, false));
 			this.parent.removeEnemy(this);
 		}
 	}
