@@ -20,7 +20,10 @@ export default class Enemy extends Entity {
 
 	update(delta) {
 		this.position.add(this.direction.prd(this.speed * delta / 1000));
-		// check if we reached the tree
+		if(this.position.dist(this.target) < 100) {
+			// eat the tree
+			this.parent.remove(this);
+		}
 	}
 
 	onDraw(ctx) {
