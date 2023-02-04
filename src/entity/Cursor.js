@@ -2,13 +2,17 @@ import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import config from '../config';
 
+const cost = config.rootCost;
+
 export default class Cursor extends Entity {
-	constructor(map) {
+	constructor(map, res) {
 		super();
 		this.layout = null;
 		this.offset = Zero();
 		this.field = null;
+
 		this.map = map;
+		this.res = res;
 	}
 
 	setShape(shape) {
@@ -58,6 +62,7 @@ export default class Cursor extends Entity {
 			const blocked = this.layout.map(p => this.map.isBlocked(pos.sum(p))).reduce((a,b) => a || b, false);
 
 			if(connected && !blocked) {
+				this.res.sun -= cost;
 				this.map.place(pos, this.layout);
 				this.hide();
 				return true;

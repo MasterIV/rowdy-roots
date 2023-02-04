@@ -5,4 +5,5 @@ export default {
 	smooth: true,
 	debug: true,
 	levels: 1,
+	rootCost: 10,
 };

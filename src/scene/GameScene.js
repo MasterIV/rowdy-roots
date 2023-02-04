@@ -25,7 +25,7 @@ export default class GameScene extends Scene {
 		this.map = new Map(levelData[level].map, () => this.resources.claimedWater++);
 		this.viewport.add(this.map);
 
-		this.cursor = new Cursor(this.map);
+		this.cursor = new Cursor(this.map, this.resources);
 		this.viewport.add(this.cursor);
 
 		this.enemies = new EnemySpawner(levelData[level].waves, this.map);
