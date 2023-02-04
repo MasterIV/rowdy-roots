@@ -42,6 +42,10 @@ export default class GameScene extends Scene {
 
 	}
 
+	addTurret() {
+
+	}
+
 	onDraw(ctx) {
 		ctx.fillStyle = 'white';
 		ctx.fillRect(0, 0, this.size.x, this.size.y);
