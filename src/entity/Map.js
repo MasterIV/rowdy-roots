@@ -22,7 +22,7 @@ export default class Map extends Entity {
 	constructor(map) {
 		super();
 
-		const levelDef = window.maploader.data[map];
+		const levelDef = JSON.parse(JSON.stringify(window.maploader.data[map]));
 		this.tiledMap = new TiledMap(levelDef, Zero());
 
 		this.spawnPoints = [];
