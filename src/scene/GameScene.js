@@ -3,13 +3,13 @@ import Map from '../entity/Map';
 import Cursor from '../entity/Cursor';
 import Viewport from 'tin-engine/lib/viewport';
 import config from '../config';
-import shapes from '../shapes';
+import levelData from '../leveldata';
 import Button from 'tin-engine/basic/button';
 import V2, {Zero} from 'tin-engine/geo/v2';
-import Turret from '../entity/Turret';
-import Entity from 'tin-engine/basic/entity';
 import Enemy from '../entity/Enemy';
 import Resources from '../ui/Resources';
+import EnemySpawner from '../entity/EnemySpawner';
+import TitleScene from './TitleScene';
 
 export default class GameScene extends Scene {
 	constructor(level) {
@@ -20,31 +20,21 @@ export default class GameScene extends Scene {
 		this.viewport = new Viewport(true);
 		this.add(this.viewport);
 
-		this.map = new Map(level);
+		this.map = new Map(levelData[level].map);
 		this.viewport.add(this.map);
 
 		this.cursor = new Cursor(this.map);
 		this.viewport.add(this.cursor);
 
-
-		this.enemies = new Entity();
+		this.enemies = new EnemySpawner(levelData[level].waves, this.map);
 		this.viewport.add(this.enemies);
-
-		this.debugSpawnEnemies();
-		this.viewport.add(new Turret(new V2(700, 700), {
-			damage: 4,
-			range: 350,
-			cooldown: 500,
-			slow: false,
-			blast: 50
-		}, this.enemies));
 
 		this.viewport.dragable(true);
 		this.viewport.centerSelf();
 
 		this.add(new Resources(new V2(1080, 0), this.resources));
 
-		const s = shapes['level' + level];
+		const s = levelData[level].shapes;
 		this.add(Button.create(Zero(), () => this.cursor.setShape(s[(Math.random()*s.length)|0])).rect(100, 100));
 
 	}
@@ -65,5 +55,9 @@ export default class GameScene extends Scene {
 	onDraw(ctx) {
 		ctx.fillStyle = 'white';
 		ctx.fillRect(0, 0, this.size.x, this.size.y);
+	}
+
+	levelOne() {
+		this.parent.goto(new TitleScene());
 	}
 }

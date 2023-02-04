@@ -19,10 +19,10 @@ const direction = {
 }
 
 export default class Map extends Entity {
-	constructor(level) {
+	constructor(map) {
 		super();
 
-		const levelDef = window.maploader.data[`maps/level${level}.json`];
+		const levelDef = window.maploader.data[map];
 		this.tiledMap = new TiledMap(levelDef, Zero());
 
 		this.spawnPoints = [];
@@ -119,7 +119,7 @@ export default class Map extends Entity {
 	}
 
 	getRandomSpawnPosition() {
-		let index = 0;
+		let index = Math.floor(Math.random() * this.spawnPoints.length);
 		while(this.spawnPoints[index][1]) {
 			index = Math.floor(Math.random() * this.spawnPoints.length);
 		}

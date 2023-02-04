@@ -22,7 +22,7 @@ export default class TitleScene extends Scene {
 		}).rect(300, 50).text('Levels'));
 		this.layout.add(Button.create(Zero(), () => this.parent.goto(new CreditsScene())).rect(300, 50).text('Credits'));
 		if (config.debug) {
-			this.layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(1))).rect(300, 50).text('Debug: Level 1'));
+			this.layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(0))).rect(300, 50).text('Debug: Level 1'));
 		}
 		// horizontally center menu on the scene
 		this.center(this.layout);

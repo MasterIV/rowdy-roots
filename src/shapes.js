@@ -1,4 +1,4 @@
-const shapes = {
+export default {
 	'corner1': [
 		[1, 0],
 		[1, 1],
@@ -59,15 +59,4 @@ const shapes = {
 		[1, 1, 1],
 		[0, 0, 1],
 	],
-};
-
-export default {
-	'level1': [
-		shapes.corner1,
-		shapes.corner3,
-		shapes.line3wide,
-		shapes.line3high,
-		shapes.reverseL1,
-		shapes.reverseL3,
-	]
-};
+}

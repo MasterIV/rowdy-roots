@@ -9,8 +9,9 @@ export default class Enemy extends Entity {
 		super(pos);
 
 		this.target = target;
-		this.hp = type.hp;
+		this.hp = type.health;
 		this.speed = type.speed;
+		this.img = type.graphic;
 		this.slowed = 0;
 
 		const dist = target.dif(pos);
@@ -50,6 +51,6 @@ export default class Enemy extends Entity {
 	onDraw(ctx) {
 		ctx.rotate(this.rotation);
 		ctx.translate(-50, -50);
-		ctx.drawImage(graphic['img/bug.png'], 0, 0);
+		ctx.drawImage(graphic[this.img], 0, 0);
 	}
 }
