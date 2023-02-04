@@ -24,6 +24,7 @@ export default class Map extends Entity {
 
 		const levelDef = JSON.parse(JSON.stringify(window.maploader.data[map]));
 		this.tiledMap = new TiledMap(levelDef, Zero());
+		this.towers = [];
 
 		this.spawnPoints = [];
 		const spawnLayer = this.tiledMap.getLayer('Spawns');
@@ -56,6 +57,14 @@ export default class Map extends Entity {
 
 	isRoot(pos) {
 		return this.get(layers.root, pos);
+	}
+
+	addTower(pos, tower) {
+		this.towers[this.posToIndex(pos)] = tower;
+	}
+
+	hasTower(pos) {
+		return this.towers[this.posToIndex(pos)];
 	}
 
 	place(origin, points) {

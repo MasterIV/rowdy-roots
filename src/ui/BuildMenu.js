@@ -5,14 +5,7 @@ import Button from 'tin-engine/basic/button';
 import { HorizontalLayout } from 'tin-engine/basic/layout';
 import Turret from '../entity/Turret';
 import config from '../config';
-
-const dummyType = {
-    damage: 4,
-    range: 350,
-    cooldown: 500,
-    slow: false,
-    blast: 50
-}
+import towerdata from '../towerdata';
 
 export default class BuildMenu extends Entity {
 	constructor(pos, cursor) {
@@ -22,10 +15,7 @@ export default class BuildMenu extends Entity {
         this.cursor = cursor;
 
         const layout = new HorizontalLayout(Zero(), 0, 50);
-        layout.add(Button.create(Zero(), () => this.build(dummyType)).rect(200, 100));
-        layout.add(Button.create(Zero(), () => this.build(dummyType)).rect(200, 100));
-        layout.add(Button.create(Zero(), () => this.build(dummyType)).rect(200, 100));
-        layout.add(Button.create(Zero(), () => this.build(dummyType)).rect(200, 100));
+        towerdata.forEach(type => layout.add(Button.create(Zero(), () => this.build(type)).rect(200, 100)));
         layout.inheritSize();
 
         this.add(layout);
@@ -33,11 +23,13 @@ export default class BuildMenu extends Entity {
 	}
 
     build(type) {
-        // check 
+        // check resources
         const {w, h} = config.tile;
         const pos = this.cursor.field.prd(w).sum(new V2(w/2, h/2));
+        const tower = new Turret(pos, type, this.parent.enemies);
 
-        this.parent.viewport.add(new Turret(pos, type, this.parent.enemies));
+        this.parent.map.addTower(this.cursor.field, tower);
+        this.parent.viewport.add(tower);
         this.cursor.hide();
     }
 
