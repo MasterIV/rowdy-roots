@@ -8,7 +8,8 @@ import {TiledDataLoader} from 'tin-engine/lib/map';
 
 window.onload = () => {
 	// Preload graphics here
-	graphics.add('img/tower.png');
+	graphics.add('img/kodama_spritesheet.png');
+	graphics.add('img/arrow_projectile.png');
 	graphics.add('img/bug.png');
 
 	window.maploader = new TiledDataLoader();
