@@ -12,10 +12,10 @@ const layers = {
 }
 
 const direction = {
-	up: new V2(-1, 0),
-	down: new V2( 1, 0),
-	left: new V2(0, -1),
-	right: new V2(0,  1),
+	left: new V2(-1, 0),
+	right: new V2( 1, 0),
+	up: new V2(0, -1),
+	down: new V2(0,  1),
 }
 
 export default class Map extends Entity {
@@ -45,16 +45,17 @@ export default class Map extends Entity {
 	}
 
 	isBlocked(pos) {
-		return this.get(layers.rock, pos) || this.get(layers.root);
+		return this.get(layers.rock, pos) || this.get(layers.root, pos);
 	}
 
 	place(origin, points) {
 		const l = this.tiledMap.getLayer(layers.root);
+		const d = l.data.data;
 
 		// place new roots
 		points.forEach(p => {
 			const i = this.posToIndex(p.sum(origin));
-			l.data.data[i] = 1;
+			d[i] = 1;
 		});
 
 		// recalculate root connections
@@ -62,10 +63,9 @@ export default class Map extends Entity {
 			for(let y = 0; y < this.tiledMap.data.height; y++) {
 				const p = new V2(x, y);
 				const i = this.posToIndex(p);
-				const d = l.data.data;
 
 				if(d[i]) {
-					d[i] = 
+					d[i] = 30 +
 						1 * (d[this.posToIndex(p.sum(direction.up))] > 0) +
 						2 * (d[this.posToIndex(p.sum(direction.right))] > 0) +
 						4 * (d[this.posToIndex(p.sum(direction.down))] > 0) +
@@ -99,7 +99,7 @@ export default class Map extends Entity {
 		const l = this.tiledMap.getLayer(layer);
 		const ctx = l.img.getContext('2d');
 		ctx.clearRect(0, 0, l.img.width, l.img.height);
-		l.staticRender(l.img);
+		l.render(ctx);
 	}
 
 	/* connections = { left: true, right: false, up: true, down: false }
