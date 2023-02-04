@@ -2,8 +2,9 @@ import Entity from 'tin-engine/basic/entity';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import graphic from 'tin-engine/core/graphic';
 import fonts from '../definition/fonts';
+import config from '../config';
 
-const cost = 10;
+const cost = config.rootCost;
 
 export default class RootMenu extends Entity {
 	constructor(pos, cursor, shapes, res) {
@@ -30,8 +31,11 @@ export default class RootMenu extends Entity {
     onClick() {
         if(this.cursor.layout != null) {
             this.cursor.hide();
-        } else if(true) {
-            this.cursor.setShape(this.shapes[(Math.random()*this.shapes.length)|0]);
+            this.last = this.current;
+        } else if(this.res.sun >= cost) {
+            this.current = this.last || this.shapes[(Math.random()*this.shapes.length)|0];
+            this.cursor.setShape(this.current);
+            this.last = null;
         }
 
         return true;
