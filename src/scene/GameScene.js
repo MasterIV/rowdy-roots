@@ -11,7 +11,6 @@ import EnemySpawner from '../entity/EnemySpawner';
 import TitleScene from './TitleScene';
 import BuildMenu from '../ui/BuildMenu';
 import RootMenu from '../ui/RootMenu';
-import CancelButton from '../ui/CancelButton';
 
 export default class GameScene extends Scene {
 	constructor(level) {
@@ -37,8 +36,7 @@ export default class GameScene extends Scene {
 
 		this.add(new Resources(new V2(1080, 0), this.resources));
 		this.center(new BuildMenu(new V2(0, 516), this.cursor, this.resources));
-		this.add(new RootMenu(Zero(), this.cursor, levelData[level].shapes));
-		this.add(new CancelButton(new V2(0, 0), this.cursor));
+		this.center(new RootMenu(new V2(0, 550), this.cursor, levelData[level].shapes, this.resources));
 	}
 
 	debugSpawnEnemies() {

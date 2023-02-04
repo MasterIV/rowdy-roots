@@ -16,6 +16,10 @@ window.onload = () => {
 	graphics.add('img/grubs.png');
 	graphics.add(`img/bottom_ui_5_cancel_normal.png`);
 	graphics.add(`img/bottom_ui_5_cancel_hover.png`);
+	graphics.add(`img/bottom_ui_0_cancel_normal.png`);
+	graphics.add(`img/bottom_ui_0_cancel_hover.png`);
+	graphics.add(`img/bottom_ui_0_roots_normal.png`);
+	graphics.add(`img/bottom_ui_0_roots_hover.png`);
 	
 	enemies.forEach(e => {
 		if (e.graphic) graphics.add(e.graphic);
