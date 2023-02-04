@@ -30,7 +30,7 @@ export default class Enemy extends Entity {
 
 		if(this.hp < 1) {
 			// death animation ?
-			this.parent.remove(this);
+			this.parent.removeEnemy(this);
 		}
 	}
 
@@ -44,7 +44,7 @@ export default class Enemy extends Entity {
 		this.distance = this.position.dist(this.target);
 		if(this.distance < 100) {
 			// eat the tree
-			this.parent.remove(this);
+			this.parent.removeEnemy(this);
 		}
 	}
 
