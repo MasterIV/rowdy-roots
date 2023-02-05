@@ -60,16 +60,16 @@ export default class HelpScene extends Scene {
 
 		const self = this;
 		this.nextButton = new Button(new V2(880, 600), this.nextPage.bind(self));
-		this.nextButton.rect(300, 50).text('Next Page');
+		this.nextButton.rect(300, 50).text('Next Page', Fonts.button);
 		this.add(this.nextButton);
 
 		this.previousButton = new Button(new V2(100, 600), this.previousPage.bind(self));
-		this.previousButton.rect(300, 50).text('Previous Page');
+		this.previousButton.rect(300, 50).text('Previous Page', Fonts.button);
 		this.previousButton.visible = false;
 		this.add(this.previousButton);
 
-		this.gameButton = new Button(new V2(880, 500), () => this.parent.goto(new GameScene(1))).rect(300, 50).text('Level 1!');
-		this.menuButton = new Button(new V2(880, 400), () => this.parent.goto(new TitleScene())).rect(300, 50).text('Main menu');
+		this.gameButton = new Button(new V2(880, 500), () => this.parent.goto(new GameScene(1))).rect(300, 50).text('Level 1!', Fonts.button);
+		this.menuButton = new Button(new V2(880, 400), () => this.parent.goto(new TitleScene())).rect(300, 50).text('Main menu', Fonts.button);
 
 		this.renderPage();
 	}
