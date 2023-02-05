@@ -11,6 +11,7 @@ import LevelsScene from './LevelsScene';
 import HelpScene from './HelpScene';
 import easing from 'tin-engine/definition/easing';
 import Fonts from '../definition/fonts';
+import ImageEntity from 'tin-engine/basic/image';
 
 export default class TitleScene extends Scene {
 	constructor() {
@@ -20,7 +21,8 @@ export default class TitleScene extends Scene {
 		this.bg = 'img/helpbg.png';
 
 		// create layout container to organize buttons
-		this.layout = new VerticalLayout(new V2(0, 100), 0, 50);
+		this.layout = new VerticalLayout(new V2(0, 80), 0, 50);
+		this.layout.add(new ImageEntity(Zero(), 'img/logo.png'));
 
 		const row1 = new HorizontalLayout(Zero(), 0, 50);
 		row1.add(new Button(Zero(), 'Debug: Level 1', () => {
@@ -43,6 +45,7 @@ export default class TitleScene extends Scene {
 		this.layout.add(row2);
 
 		// horizontally center menu on the scene
+		this.layout.align('center');
 		this.center(this.layout);
 	}
 }

@@ -14,6 +14,7 @@ window.onload = () => {
 	graphics.add('img/splatter.png');
 	graphics.add('img/explosion.png');
 	graphics.add('img/grubs.png');
+	graphics.add('img/logo.png');
 	graphics.add(`img/bottom_ui_5_cancel_normal.png`);
 	graphics.add(`img/bottom_ui_5_cancel_hover.png`);
 	graphics.add(`img/bottom_ui_0_cancel_normal.png`);
