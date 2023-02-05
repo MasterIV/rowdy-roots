@@ -1,7 +1,7 @@
 import Scene from 'tin-engine/lib/scene';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import config from '../config';
-import Button from 'tin-engine/basic/button';
+import Button from '../ui/Button';
 import TextEntity from 'tin-engine/basic/text';
 import {VerticalLayout} from 'tin-engine/basic/layout';
 import Fonts from '../definition/fonts';
@@ -14,14 +14,14 @@ export default class CreditsScene extends Scene {
 		this.bg = 'img/helpbg.png';
 
 		// create layout container to organize buttons
-		const layout = new VerticalLayout(new V2(0, 200), 0, 100);
+		const layout = new VerticalLayout(new V2(0, 130), 0, 100);
 		// add some credits
 		layout.add(new TextEntity(Zero(), '- Konservenfabrik -', Fonts.credits));
-		layout.add(new TextEntity(Zero(), 'Tobias Rojahn (Syrup) - Code, Art Support', Fonts.credits));
-		layout.add(new TextEntity(Zero(), 'Felix Wagner (Armag3ddon) - Code, Game Design', Fonts.credits));
-		layout.add(new TextEntity(Zero(), 'Judith Gastell (Melusine) - Art', Fonts.credits));
+		layout.add(new TextEntity(Zero(), 'Tobias Rojahn (Syrup)', Fonts.credits));
+		layout.add(new TextEntity(Zero(), 'Felix Wagner (Armag3ddon)', Fonts.credits));
+		layout.add(new TextEntity(Zero(), 'Judith Gastell (Melusine)', Fonts.credits));
 		// add back button
-		layout.add(Button.create(Zero(), () => this.parent.goto(this.previous)).rect(300, 50).text('Back', Fonts.button));
+		layout.add(new Button(Zero(), 'Back', () => this.parent.goto(this.previous)));
 		// align items within the layout
 		layout.align('center');
 		// horizontally center menu on the scene

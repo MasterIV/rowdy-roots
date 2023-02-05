@@ -1,7 +1,7 @@
 import FontStyle from "tin-engine/definition/font";
 
 export default {
-	button: new FontStyle(25, '#FFA', 'ButtonFont'),
+	button: new FontStyle(25, '#FFA', 'ButtonFont', 'black'),
 	levelButton: new FontStyle(20, '#FFA', 'ButtonFont'),
 	credits: new FontStyle(40, '#FFA', 'ButtonFont'),
 	costNormal: new FontStyle(24, '#FFA', 'sans-serif' ),

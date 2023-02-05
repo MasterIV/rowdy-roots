@@ -26,6 +26,7 @@ window.onload = () => {
 	graphics.add(`img/roots_top.png`);
 	graphics.add(`img/progress_bar_frame.png`);
 	graphics.add(`img/button_base_normal.png`);
+	graphics.add(`img/button_base_hover.png`);
 	
 	enemies.forEach(e => {
 		if (e.graphic) graphics.add(e.graphic);

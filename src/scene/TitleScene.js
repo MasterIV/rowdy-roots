@@ -1,8 +1,8 @@
 import Scene from 'tin-engine/lib/scene';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import config from '../config';
-import Button from 'tin-engine/basic/button';
-import {VerticalLayout} from 'tin-engine/basic/layout'
+import Button from '../ui/Button';
+import {HorizontalLayout, VerticalLayout} from 'tin-engine/basic/layout'
 import GameScene from './GameScene';
 import CreditsScene from './CreditsScene';
 import SlideInTopTransition from '../transition/SlideInTop';
@@ -21,17 +21,27 @@ export default class TitleScene extends Scene {
 
 		// create layout container to organize buttons
 		this.layout = new VerticalLayout(new V2(0, 100), 0, 50);
-		// add buttons to main menu
-		this.layout.add(Button.create(Zero(), () => {
+
+		const row1 = new HorizontalLayout(Zero(), 0, 50);
+		row1.add(new Button(Zero(), 'Debug: Level 1', () => {
+			this.parent.goto(new GameScene(0))
+		}));
+
+		row1.add(new Button(Zero(), 'Levels', () => {
 			this.parent.goto(new SlideInTopTransition(new LevelsScene(), 1000, easing.OUTELASTIC));
-		}).img('img/button_base_normal.png').text('Levels', Fonts.button));
-		this.layout.add(Button.create(Zero(), () => {
+		}));
+		this.layout.add(row1);
+
+		const row2 = new HorizontalLayout(Zero(), 0, 50);
+		row2.add(new Button(Zero(), 'Help', () => {
 			this.parent.goto(new SlideInBottomTransition(new HelpScene(), 1000, easing.OUTELASTIC));
-		}).rect(300, 50).text('Help', Fonts.button));
-		this.layout.add(Button.create(Zero(), () => this.parent.goto(new CreditsScene())).rect(300, 50).text('Credits', Fonts.button));
-		if (config.debug) {
-			this.layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(0))).rect(300, 50).text('Debug: Level 1', Fonts.button));
-		}
+		}));
+
+		row2.add(new Button(Zero(), 'Credits', () => {
+			this.parent.goto(new CreditsScene());
+		}));
+		this.layout.add(row2);
+
 		// horizontally center menu on the scene
 		this.center(this.layout);
 	}
