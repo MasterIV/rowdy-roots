@@ -24,7 +24,7 @@ export default class TitleScene extends Scene {
 		// add buttons to main menu
 		this.layout.add(Button.create(Zero(), () => {
 			this.parent.goto(new SlideInTopTransition(new LevelsScene(), 1000, easing.OUTELASTIC));
-		}).rect(300, 50).text('Levels', Fonts.button));
+		}).img('img/button_base_normal.png').text('Levels', Fonts.button));
 		this.layout.add(Button.create(Zero(), () => {
 			this.parent.goto(new SlideInBottomTransition(new HelpScene(), 1000, easing.OUTELASTIC));
 		}).rect(300, 50).text('Help', Fonts.button));

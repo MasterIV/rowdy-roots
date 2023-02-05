@@ -23,6 +23,7 @@ window.onload = () => {
 	graphics.add(`img/helpbg.png`);
 	graphics.add(`img/sun_icon.png`);
 	graphics.add(`img/water_icon.png`);
+	graphics.add(`img/button_base_normal.png`);
 	
 	enemies.forEach(e => {
 		if (e.graphic) graphics.add(e.graphic);
