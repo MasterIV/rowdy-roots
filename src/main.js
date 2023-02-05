@@ -41,7 +41,7 @@ window.onload = () => {
 	});
 
 	window.maploader = new TiledDataLoader();
-	window.maploader.preloadCompleteJSON('maps/level1.json', () => {
+	window.maploader.preloadCompleteJSON(['maps/level1.json','maps/level2.json'], () => {
 		graphics.load(() => {
 			document.getElementById('loading').style.display = 'none';
 

@@ -11,7 +11,7 @@ export default [
 		'id': 1,
 		'name': 'Speedy Critty',
 		'description': 'Extra hungry bug! This fast bugger will quickly cause trouble.',
-		'graphic': 'img/bug_spritesheet.png',
+		'graphic': 'img/bug4_spritesheet.png',
 		'health': 50,
 		'speed': 120
 	},

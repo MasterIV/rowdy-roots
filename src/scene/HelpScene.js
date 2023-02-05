@@ -21,7 +21,7 @@ export default class HelpScene extends Scene {
 
 		this.marginLeftRight = 100;
 		this.marginTop = 100;
-		this.rowHeight = 100;
+		this.rowHeight = 90;
 		this.rowSpacing = 10;
 
 		this.pages = [
