@@ -11,7 +11,7 @@ export default [
 		'id': 1,
 		'name': 'Speedy Critty',
 		'description': 'Extra hungry bug! This fast bugger will quickly cause trouble.',
-		'graphic': 'img/bug4_spritesheet.png',
+		'graphic': 'img/bug3_spritesheet.png',
 		'health': 50,
 		'speed': 120
 	},
@@ -27,8 +27,8 @@ export default [
 		'id': 3,
 		'name': 'Absolute Brain Bug',
 		'description': 'The ultimate bug! Tough and fast. This one is on the hunt for your tree and it is not afraid!',
-		'graphic': 'img/bug3_spritesheet.png',
-		'health': 100,
+		'graphic': 'img/bug4_spritesheet.png',
+		'health': 1000,
 		'speed': 50
 	},
 	{

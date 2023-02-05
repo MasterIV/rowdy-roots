@@ -177,7 +177,7 @@
          "name":"Tree",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":25,
          "x":0,
          "y":0
@@ -186,7 +186,55 @@
          "draworder":"topdown",
          "id":6,
          "name":"Spawns",
-         "objects":[],
+         "objects":[
+                {
+                 "class":"",
+                 "height":0,
+                 "id":1,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":350,
+                 "y":350
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":2,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":2150,
+                 "y":350
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":3,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":2150,
+                 "y":2150
+                }, 
+                {
+                 "class":"",
+                 "height":0,
+                 "id":4,
+                 "name":"",
+                 "point":true,
+                 "rotation":0,
+                 "visible":true,
+                 "width":0,
+                 "x":350,
+                 "y":2150
+                }],
          "opacity":1,
          "properties":[
                 {
@@ -200,7 +248,7 @@
          "y":0
         }],
  "nextlayerid":7,
- "nextobjectid":1,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "properties":[
         {

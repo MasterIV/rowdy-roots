@@ -26,7 +26,7 @@ export default {
 	'line4wide': [
 		[1,1,1,1],
 	],
-	'line4wide': [
+	'line4high': [
 		[1],
 		[1],
 		[1],

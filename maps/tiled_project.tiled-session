@@ -3,11 +3,26 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "level2.json",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "Alle Dateien (*)",
     "fileStates": {
+        "Roots.json": {
+            "scaleInDock": 1
+        },
+        "Terrain.json": {
+            "scaleInDock": 1
+        },
+        "level2.json": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1194,
+                "y": 1249
+            }
+        }
     },
     "last.imagePath": "//wsl.localhost/Ubuntu-20.04/home/arma/rowdy-roots/maps",
     "map.height": 25,
@@ -16,10 +31,12 @@
     "map.tileWidth": 100,
     "map.width": 25,
     "openFiles": [
+        "level2.json"
     ],
     "project": "tiled_project.tiled-project",
     "property.type": "string",
     "recentFiles": [
+        "level2.json"
     ],
     "tileset.lastUsedFormat": "json",
     "tileset.tileSize": {
