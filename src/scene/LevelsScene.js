@@ -35,7 +35,6 @@ export default class LevelsScene extends Scene {
 			}
 			layout.align('left');
 			vertical.add(layout);
-			level++;
 		}
 
 		vertical.add(new Button(new V2(490, 580), 'Menu', () => this.parent.goto(new TitleScene())));

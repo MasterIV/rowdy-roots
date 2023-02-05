@@ -48,6 +48,71 @@ export default [
 		],
 	},
 	{
+		'name': 'leveltutorial',
+		'map': 'maps/leveltutorial.json',
+		'shapes': [
+			Shapes.corner1,
+			Shapes.corner2,
+			Shapes.corner3,
+			Shapes.corner4,
+		],
+		'waves': [
+			{
+				'time': 40,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 1000,
+						}
+					]
+				]
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 4,
+							'delay': 700,
+						}
+					]
+				]
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 500,
+						},
+						{
+							'type': Enemies[4],
+							'count': 2,
+							'delay': 1000,
+						}
+					]
+				]
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[2],
+							'count': 1,
+							'delay': 1,
+						}
+					]
+				]
+			}
+		]
+	},
+	{
 		'name': 'level1',
 		'map': 'maps/level1.json',
 		'shapes': [

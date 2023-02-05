@@ -25,14 +25,25 @@
                 "x": 1124,
                 "y": 1240
             }
+        },
+        "level3.json": {
+            "expandedObjectLayers": [
+                6
+            ],
+            "scale": 0.22496,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 1253.5561877667142,
+                "y": 1253.556187766714
+            }
         }
     },
     "last.imagePath": "//wsl.localhost/Ubuntu-20.04/home/arma/rowdy-roots/maps",
-    "map.height": 25,
+    "map.height": 11,
     "map.lastUsedFormat": "json",
     "map.tileHeight": 100,
     "map.tileWidth": 100,
-    "map.width": 25,
+    "map.width": 11,
     "openFiles": [
         "level2.json"
     ],
