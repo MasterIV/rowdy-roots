@@ -34,7 +34,7 @@ export default class GameScene extends Scene {
 		this.viewport.dragable(true);
 		this.viewport.centerSelf();
 
-		this.add(new Resources(new V2(1080, 0), this.resources));
+		this.center(new Resources(new V2(1080, 0), this.resources));
 		this.center(new BuildMenu(new V2(0, 516), this.cursor, this.resources));
 		this.center(new RootMenu(new V2(0, 550), this.cursor, levelData[level].shapes, this.resources));
 	}
@@ -46,10 +46,6 @@ export default class GameScene extends Scene {
 		this.enemies.add(new Enemy(new V2(1200, 200), regular, center));
 		this.enemies.add(new Enemy(new V2(1200, 1200), regular, center));
 		this.enemies.add(new Enemy(new V2(200, 1200), regular, center));
-	}
-
-	addTurret() {
-
 	}
 
 	onDraw(ctx) {
