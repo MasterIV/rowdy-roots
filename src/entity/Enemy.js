@@ -21,7 +21,7 @@ export default class Enemy extends Entity {
 		this.direction = dist.quo(len);
 
 		const {w, h} = config.tile;
-		this.animation = new Animation('img/bug_spritesheet.png', new V2(w/-2, h/-2), new V2(4,8), 150, true);
+		this.animation = new Animation(type.graphic, new V2(w/-2, h/-2), new V2(4,8), 150, true);
 		this.animation.state = (8 + Math.round( 4* angle / Math.PI )) % 8;
 		this.add(this.animation);
 	}
