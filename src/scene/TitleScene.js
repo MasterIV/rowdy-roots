@@ -17,7 +17,7 @@ export default class TitleScene extends Scene {
 		super();
 		// initialize size to use the center method
 		this.setSize(config.screen.w, config.screen.h);
-		this.bg = 'img/helpbg.png';
+		this.bg = 'img/menubg.png';
 
 		// create layout container to organize buttons
 		this.layout = new VerticalLayout(new V2(0, 80), 0, 50);

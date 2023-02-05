@@ -29,6 +29,7 @@ window.onload = () => {
 	graphics.add(`img/bottom_ui_0_roots_normal.png`);
 	graphics.add(`img/bottom_ui_0_roots_hover.png`);
 	graphics.add(`img/helpbg.png`);
+	graphics.add(`img/menubg.png`);
 	graphics.add(`img/sun_icon.png`);
 	graphics.add(`img/water_icon.png`);
 	graphics.add(`img/roots_top.png`);
