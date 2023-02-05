@@ -10,7 +10,6 @@ import SlideInBottomTransition from '../transition/SlideInBottom';
 import LevelsScene from './LevelsScene';
 import HelpScene from './HelpScene';
 import easing from 'tin-engine/definition/easing';
-import Fonts from '../definition/fonts';
 import ImageEntity from 'tin-engine/basic/image';
 
 export default class TitleScene extends Scene {

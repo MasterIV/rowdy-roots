@@ -11,6 +11,7 @@ import EnemySpawner from '../entity/EnemySpawner';
 import TitleScene from './TitleScene';
 import BuildMenu from '../ui/BuildMenu';
 import RootMenu from '../ui/RootMenu';
+import GameoverScene from './GameoverScene';
 
 export default class GameScene extends Scene {
 	constructor(level) {
@@ -65,7 +66,7 @@ export default class GameScene extends Scene {
 	attack() {
 		this.resources.hp--;
 		if(this.resources.hp < 1) {
-			// you lose
+			this.parent.goto(new GameoverScene());
 		}
 	}
 
