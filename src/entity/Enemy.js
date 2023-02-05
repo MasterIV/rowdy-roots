@@ -33,7 +33,7 @@ export default class Enemy extends Entity {
 		this.hp -= dmg;
 
 		if(slow) {
-			this.slow = slowDuration;
+			this.slowed = slowDuration;
 		}
 
 		if(this.hp < 1) {
