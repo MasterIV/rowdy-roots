@@ -11,7 +11,7 @@ export default [
 		'id': 1,
 		'name': 'Speedy Critty',
 		'description': 'Extra hungry bug! This fast bugger will quickly cause trouble.',
-		'graphic': 'img/bug_spritesheet.png',
+		'graphic': 'img/bug4_spritesheet.png',
 		'health': 50,
 		'speed': 120
 	},
@@ -30,5 +30,13 @@ export default [
 		'graphic': 'img/bug3_spritesheet.png',
 		'health': 100,
 		'speed': 50
+	},
+	{
+		'id': 4,
+		'name': 'Swarmy McSwarmface',
+		'description': 'Never strikes alone!',
+		'graphic': 'img/bug5_spritesheet.png',
+		'health': 25,
+		'speed': 80
 	},
 ]
