@@ -1,5 +1,6 @@
 import Game from 'tin-engine/core/game';
 import graphics from 'tin-engine/core/graphic';
+import sound from 'tin-engine/core/sound';
 import controls from 'tin-engine/core/controls';
 import mouse from 'tin-engine/core/mouse';
 import config from './config';
@@ -13,6 +14,12 @@ window.onload = () => {
 	const music = new Audio('snd/music.mp3');
 	music.loop = true;
 	music.volume = .2;
+
+	// Load sounds here
+	sound.add('snd/throw.ogg');
+	sound.add('snd/throw_ice.ogg');
+	sound.add('snd/throw_seeds.ogg');
+	sound.add('snd/throw_bomb.ogg');
 
 	// Preload graphics here
 	graphics.add('img/splatter.png');

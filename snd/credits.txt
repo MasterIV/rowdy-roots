@@ -1,1 +1,5 @@
 music.mp3: Fluffing a Duck, Kevin MacLeod: https://www.chosic.com/download-audio/27248/ CC BY 3.0
+throw.ogg: Brsjak, https://freesound.org/people/Brsjak/sounds/482880/ CC BY 4.0
+throw_ice.ogg: CC 0
+throw_seeds.ogg: CC 0 https://freesound.org/people/Duisterwho/sounds/644266/
+throw_bomb.ogg: CC 0 https://freesound.org/people/magnuswaker/sounds/523230/

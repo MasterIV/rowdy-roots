@@ -3,6 +3,7 @@ import V2, {Zero} from 'tin-engine/geo/v2';
 import graphic from 'tin-engine/core/graphic';
 import config from '../config';
 import Animation from 'tin-engine/lib/animation';
+import sound from 'tin-engine/core/sound';
 
 const speed = 500;
 
@@ -13,6 +14,7 @@ export default class Bullet extends Entity {
 		this.target = target;
         this.type = type;
         this.enemies = enemies;
+		sound.play(type.throwsound);
 	}
 
 	update(delta) {
