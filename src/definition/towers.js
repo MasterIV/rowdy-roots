@@ -11,7 +11,7 @@ export default [
 		'cooldown': 1000,
 		'slow': false,
 		'blast': 0,
-		'cost': {sun: 1, water: 1},
+		'cost': {sun: 0, water: 10},
 	},
 	{
 		'id': 2,

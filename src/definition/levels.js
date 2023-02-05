@@ -71,6 +71,37 @@ export default [
 					],
 				],
 			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 6,
+							'delay': 600,
+						},
+					],
+				],
+			},
+			{
+				'time': 20,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 12,
+							'delay': 750,
+						},
+					],
+					[
+						{
+							'type': Enemies[2],
+							'count': 1,
+							'delay': 0,
+						},
+					],
+				],
+			},
 		],
 	},
 ];

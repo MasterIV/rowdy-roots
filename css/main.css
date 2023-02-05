@@ -29,3 +29,9 @@ body {
 	font-size: 14px;
 	color: #BDF;
 }
+
+/* Font by Rafael Olivo, https://www.dafont.com/arco.font */
+@font-face {
+	font-family: ButtonFont;
+	src: url(./ARCO.ttf);
+}

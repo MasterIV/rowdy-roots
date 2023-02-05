@@ -10,6 +10,7 @@ import SlideInBottomTransition from '../transition/SlideInBottom';
 import LevelsScene from './LevelsScene';
 import HelpScene from './HelpScene';
 import easing from 'tin-engine/definition/easing';
+import Fonts from '../definition/fonts';
 
 export default class TitleScene extends Scene {
 	constructor() {
@@ -23,13 +24,13 @@ export default class TitleScene extends Scene {
 		// add buttons to main menu
 		this.layout.add(Button.create(Zero(), () => {
 			this.parent.goto(new SlideInTopTransition(new LevelsScene(), 1000, easing.OUTELASTIC));
-		}).rect(300, 50).text('Levels'));
+		}).rect(300, 50).text('Levels', Fonts.button));
 		this.layout.add(Button.create(Zero(), () => {
 			this.parent.goto(new SlideInBottomTransition(new HelpScene(), 1000, easing.OUTELASTIC));
-		}).rect(300, 50).text('Help'));
-		this.layout.add(Button.create(Zero(), () => this.parent.goto(new CreditsScene())).rect(300, 50).text('Credits'));
+		}).rect(300, 50).text('Help', Fonts.button));
+		this.layout.add(Button.create(Zero(), () => this.parent.goto(new CreditsScene())).rect(300, 50).text('Credits', Fonts.button));
 		if (config.debug) {
-			this.layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(0))).rect(300, 50).text('Debug: Level 1'));
+			this.layout.add(Button.create(Zero(), () => this.parent.goto(new GameScene(0))).rect(300, 50).text('Debug: Level 1', Fonts.button));
 		}
 		// horizontally center menu on the scene
 		this.center(this.layout);
