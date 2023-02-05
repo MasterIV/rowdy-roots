@@ -19,12 +19,10 @@ export default class EnemySpawner extends Entity {
 		if (!this.bugs.length && !this.grubs.length) {
 			if (this.nextWave >= this.waves.length) {
 				this.parent.parent.levelWon();
-			}
-			else {
+			} else {
 				this.spawnGrubs();
 			}
-		}
-		else if (this.grubs.length) {
+		} else if (this.grubs.length) {
 			this.currentTimer -= delta;
 			if (this.currentTimer <= 0) {
 				this.hatchGrubs();

@@ -63,8 +63,9 @@ export default class HelpScene extends Scene {
 		this.previousButton.visible = false;
 		this.add(this.previousButton);
 
-		this.gameButton = new Button(new V2(490, 580), 'Play', () => this.parent.goto(new GameScene(1)));
-		this.menuButton = new Button(new V2(880, 580), 'Menu', () => this.parent.goto(new TitleScene()));
+		this.gameButton = new Button(new V2(880, 580), 'Play', () => this.parent.goto(new GameScene(1)));
+		this.menuButton = new Button(new V2(490, 580), 'Menu', () => this.parent.goto(new TitleScene()));
+		this.add(this.menuButton);
 
 		this.renderPage();
 	}
@@ -74,7 +75,6 @@ export default class HelpScene extends Scene {
 		if (this.page >= this.pages.length-1) {
 			this.nextButton.visible = false;
 			this.page = this.pages.length-1;
-			this.add(this.menuButton);
 			this.add(this.gameButton);
 		}
 		else {
@@ -94,7 +94,6 @@ export default class HelpScene extends Scene {
 			this.previousButton.visible = true;
 		}
 		this.nextButton.visible = true;
-		this.remove(this.menuButton);
 		this.remove(this.gameButton);
 		this.renderPage();
 	}

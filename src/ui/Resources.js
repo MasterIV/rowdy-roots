@@ -20,11 +20,8 @@ export default class Resources extends Entity {
         this.add(this.bar = new RectEntity(new V2(261, 25), new V2(bar_length, 46), {apply: this.setColor.bind(this)}));
         this.add(new ImageEntity(new V2(250, 10), 'img/progress_bar_frame.png'));
         
-        this.add(new ImageEntity(new V2(100, 10), 'img/water_icon.png', .5));
-        this.add(this.water = new TextEntity(new V2(180, 40), resources.water, fonts.resource));
-
-        this.add(new ImageEntity(new V2(700, 10), 'img/sun_icon.png', .5));
-        this.add(this.sun = new TextEntity(new V2(780, 40), resources.sun, fonts.resource));
+        this.add(this.water = new TextEntity(new V2(750, 40), resources.water, fonts.resource));
+        this.add(this.sun = new TextEntity(new V2(140, 40), resources.sun, fonts.resource));
 
         this.inheritSize();
 	}
