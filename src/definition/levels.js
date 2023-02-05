@@ -102,6 +102,168 @@ export default [
 					],
 				],
 			},
+			{
+				'time': 20,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 12,
+							'delay': 300,
+						},
+						{
+							'type': Enemies[2],
+							'count': 2,
+							'delay': 1000,
+						}
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 12,
+							'delay': 500,
+						}
+					],
+				]
+			},
+			{
+				'time': 10,
+				'enemies': [
+					[
+						{
+							'type': Enemies[2],
+							'count': 4,
+							'delay': 700,
+						}
+					],
+					[
+						{
+							'type': Enemies[2],
+							'count': 4,
+							'delay': 350,
+						},
+					],
+				],
+			},
+			{
+				'time': 20,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 350,
+						},
+						{
+							'type': Enemies[2],
+							'count': 5,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 350,
+						}
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 350,
+						},
+						{
+							'type': Enemies[2],
+							'count': 5,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 350,
+						}
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 350,
+						},
+						{
+							'type': Enemies[2],
+							'count': 5,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 350,
+						}
+					],
+				],
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[1],
+							'count': 5,
+							'delay': 100,
+						},
+						{
+							'type': Enemies[2],
+							'count': 4,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 11,
+							'delay': 300,
+						}
+					],
+					[
+						{
+							'type': Enemies[1],
+							'count': 5,
+							'delay': 100,
+						},
+						{
+							'type': Enemies[2],
+							'count': 4,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 11,
+							'delay': 850,
+						}
+					],
+					[
+						{
+							'type': Enemies[1],
+							'count': 5,
+							'delay': 100,
+						},
+						{
+							'type': Enemies[2],
+							'count': 4,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 11,
+							'delay': 750,
+						}
+					],
+					[
+						{
+							'type': Enemies[1],
+							'count': 20,
+							'delay': 500,
+						}
+					],
+				],
+			}
 		],
 	},
 ];
