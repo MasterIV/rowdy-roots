@@ -1,6 +1,7 @@
 import Entity from "tin-engine/basic/entity";
 import { arrayRemove } from "tin-engine/util";
 import Grub from "./Grub";
+import GrubIndicator from "./GrubIndicator";
 
 export default class EnemySpawner extends Entity {
 	constructor(waveData, map) {
@@ -42,6 +43,7 @@ export default class EnemySpawner extends Entity {
 			const grub = new Grub(pos, nest, target);
 			this.grubs.push(grub);
 			this.add(grub);
+			this.add(new GrubIndicator(target, grub.position));
 		});
 	}
 
