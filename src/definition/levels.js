@@ -435,4 +435,220 @@ export default [
 			}
 		],
 	},
+	{
+		'name': 'level3',
+		'map': 'maps/level3.json',
+		'shapes': [
+			Shapes.corner1,
+			Shapes.corner2,
+			Shapes.corner3,
+			Shapes.corner4,
+			Shapes.line3high,
+			Shapes.squiggly1,
+			Shapes.squiggly2,
+		],
+		'waves': [
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 3,
+							'delay': 500,
+						},
+					],
+				],
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 500,
+						},
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 500,
+						},
+					],
+				],
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[1],
+							'count': 3,
+							'delay': 1000,
+						},
+					],
+					[
+						{
+							'type': Enemies[1],
+							'count': 3,
+							'delay': 1000,
+						},
+					],
+				],
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 250,
+						},
+						{
+							'type': Enemies[1],
+							'count': 3,
+							'delay': 500,
+						},
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 250,
+						},
+						{
+							'type': Enemies[1],
+							'count': 3,
+							'delay': 500,
+						},
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 3,
+							'delay': 500,
+						}
+					]
+				],
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 2,
+							'delay': 250,
+						},
+						{
+							'type': Enemies[2],
+							'count': 3,
+							'delay': 250,
+						},
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 4,
+							'delay': 250,
+						},
+						{
+							'type': Enemies[2],
+							'count': 2,
+							'delay': 500,
+						},
+					],
+					[
+						{
+							'type': Enemies[0],
+							'count': 5,
+							'delay': 550,
+						}
+					]
+				],
+			},
+			{
+				'time': 20,
+				'enemies': [
+					[
+						{
+							'type': Enemies[3],
+							'count': 1,
+							'delay': 1,
+						}
+					]
+				]
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 10,
+							'delay': 250,
+						},
+					],
+					[
+						{
+							'type': Enemies[2],
+							'count': 5,
+							'delay': 750,
+						},
+					],
+					[
+						{
+							'type': Enemies[1],
+							'count': 7,
+							'delay': 1000,
+						},
+					],
+				]
+			},
+			{
+				'time': 30,
+				'enemies': [
+					[
+						{
+							'type': Enemies[0],
+							'count': 10,
+							'delay': 250,
+						},
+						{
+							'type': Enemies[1],
+							'count': 3,
+							'delay': 550,
+						}
+					],
+					[
+						{
+							'type': Enemies[2],
+							'count': 8,
+							'delay': 750,
+						},
+						{
+							'type': Enemies[0],
+							'count': 10,
+							'delay': 200,
+						},
+					],
+					[
+						{
+							'type': Enemies[2],
+							'count': 7,
+							'delay': 1000,
+						},
+						{
+							'type': Enemies[1],
+							'count': 5,
+							'delay': 500,
+						}
+					],
+				]
+			},
+		],
+	},
 ];

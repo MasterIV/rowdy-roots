@@ -16,11 +16,14 @@
             "scaleInDock": 1
         },
         "level2.json": {
-            "scale": 1,
-            "selectedLayer": 0,
+            "expandedObjectLayers": [
+                6
+            ],
+            "scale": 0.25,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 1194,
-                "y": 1249
+                "x": 1124,
+                "y": 1240
             }
         }
     },

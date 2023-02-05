@@ -22,7 +22,7 @@ export default class LevelsScene extends Scene {
 		for (let i = 0; i < rows; i++) {
 			const layout = new HorizontalLayout(new V2(40, 50), 0, 100);
 			let buttons = 3;
-			if (i == rows-1) buttons = levels % 3;
+			if (i == rows-1 && i) buttons = levels % 3;
 			for (let j = 0; j < buttons; j++) {
 				(level => {
 				layout
