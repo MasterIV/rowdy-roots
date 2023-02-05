@@ -83,7 +83,7 @@ export default class GameScene extends Scene {
 
 	levelWon() {
 		this.block(new RectEntity(Zero(), this.size, overlay));
-		this.block(new ImageEntity(new V2(269, 0), 'img/game_over_screen.png'));
+		this.block(new ImageEntity(new V2(173, 0), 'img/win_screen.png'));
 
 		if(levelData.length-2 < this.level)
 			this.block(new Button(new V2(490, 580), 'Menu', () => this.parent.goto(new TitleScene())));
