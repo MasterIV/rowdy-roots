@@ -62,6 +62,13 @@ export default class GameScene extends Scene {
 		}
 	}
 
+	attack() {
+		this.resources.hp--;
+		if(this.resources.hp < 1) {
+			// you lose
+		}
+	}
+
 	levelWon() {
 		this.parent.goto(new TitleScene());
 	}

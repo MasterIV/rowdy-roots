@@ -8,7 +8,7 @@ body {
 	position: relative;
 	top: 0;
 	left: 0;
-	background: white;
+	background: black;
 	display: block;
 	margin: auto;
 }
@@ -33,5 +33,5 @@ body {
 /* Font by Rafael Olivo, https://www.dafont.com/arco.font */
 @font-face {
 	font-family: ButtonFont;
-	src: url(./ARCO.ttf);
+	src: url('./ARCO.ttf');
 }

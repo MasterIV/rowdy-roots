@@ -52,7 +52,7 @@ export default class Enemy extends Entity {
 		this.position.add(this.direction.prd(this.speed * delta / 1000));
 		this.distance = this.position.dist(this.target);
 		if(this.distance < 100) {
-			// eat the tree
+			this.parent.parent.parent.attack();
 			this.parent.removeEnemy(this);
 		}
 	}
