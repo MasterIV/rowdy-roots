@@ -6,7 +6,7 @@ import Enemy from "./Enemy";
 
 export default class Grub extends Entity {
 	constructor(pos, enemyData, target) {
-		super(pos.sub(new V2(50, 50)), new V2(100, 100));
+		super(pos.dif(new V2(50, 50)), new V2(100, 100));
 
 		this.enemyData = enemyData;
 		this.target = target;

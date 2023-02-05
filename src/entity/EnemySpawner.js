@@ -33,7 +33,7 @@ export default class EnemySpawner extends Entity {
 	}
 
 	spawnGrubs() {
-		const target = this.map.size.clone().div(2);
+		const target = this.map.size.quo(2);
 		const wave = this.waves[this.nextWave];
 		this.nextWave++;
 

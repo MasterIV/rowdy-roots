@@ -25,8 +25,8 @@ export default class TitleScene extends Scene {
 		this.layout.add(new ImageEntity(Zero(), 'img/logo.png'));
 
 		const row1 = new HorizontalLayout(Zero(), 0, 50);
-		row1.add(new Button(Zero(), 'Debug: Level 1', () => {
-			this.parent.goto(new GameScene(0))
+		row1.add(new Button(Zero(), 'Play', () => {
+			this.parent.goto(new GameScene(1))
 		}));
 
 		row1.add(new Button(Zero(), 'Levels', () => {
