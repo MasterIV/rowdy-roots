@@ -35,7 +35,7 @@ export default class Grub extends Entity {
 				Math.floor(Math.random() * 80 + 20) * (Math.random() < 0.5 ? -1 : 1),
 				Math.floor(Math.random() * 80 + 20) * (Math.random() < 0.5 ? -1 : 1)
 			);
-		const enemy = new Enemy(this.position.clone().add(pos), bugData[0], this.target);
+		const enemy = new Enemy(this.position.sum(pos), bugData[0], this.target);
 		this.parent.addEnemy(enemy);
 		this.hatchTimer = bugData[1];
 	}
