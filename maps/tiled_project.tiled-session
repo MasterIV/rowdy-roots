@@ -23,8 +23,8 @@
             "scale": 0.25,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 668,
-                "y": 856
+                "x": 850,
+                "y": 850
             }
         },
         "menuback.json": {
@@ -49,8 +49,8 @@
     "project": "tiled_project.tiled-project",
     "property.type": "string",
     "recentFiles": [
-        "level1.json",
         "menuback.json",
+        "level1.json",
         "Terrain.json",
         "Roots.json"
     ],

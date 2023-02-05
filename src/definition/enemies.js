@@ -12,7 +12,7 @@ export default [
 		'name': 'Speedy Critty',
 		'description': 'Extra hungry bug! This fast bugger will quickly cause trouble.',
 		'graphic': 'img/bug_spritesheet.png',
-		'health': 5,
+		'health': 50,
 		'speed': 120
 	},
 	{
@@ -20,7 +20,7 @@ export default [
 		'name': 'Big Grub',
 		'description': 'The toughest and biggest bug. Not the fastet but can definitel tank some damage.',
 		'graphic': 'img/bug2_spritesheet.png',
-		'health': 25,
+		'health': 150,
 		'speed': 30
 	},
 	{
