@@ -202,6 +202,12 @@
  "nextlayerid":7,
  "nextobjectid":1,
  "orientation":"orthogonal",
+ "properties":[
+        {
+         "name":"name",
+         "type":"string",
+         "value":"Cribble Trouble"
+        }],
  "renderorder":"right-down",
  "tiledversion":"1.9.2",
  "tileheight":100,
