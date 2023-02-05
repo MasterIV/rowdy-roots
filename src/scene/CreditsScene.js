@@ -5,6 +5,7 @@ import Button from '../ui/Button';
 import TextEntity from 'tin-engine/basic/text';
 import {VerticalLayout} from 'tin-engine/basic/layout';
 import Fonts from '../definition/fonts';
+import TitleScene from './TitleScene';
 
 export default class CreditsScene extends Scene {
 	constructor() {
@@ -21,16 +22,10 @@ export default class CreditsScene extends Scene {
 		layout.add(new TextEntity(Zero(), 'Felix Wagner (Armag3ddon)', Fonts.credits));
 		layout.add(new TextEntity(Zero(), 'Judith Gastell (Melusine)', Fonts.credits));
 		// add back button
-		layout.add(new Button(Zero(), 'Back', () => this.parent.goto(this.previous)));
+		layout.add(new Button(Zero(), 'Back', () => this.parent.goto(new TitleScene())));
 		// align items within the layout
 		layout.align('center');
 		// horizontally center menu on the scene
 		this.center(layout);
-	}
-
-	setParent(game) {
-		// this is called before the scene gets set to the new value
-		this.previous = game.scene;
-		super.setParent(game);
 	}
 }

@@ -39,7 +39,7 @@ export default class TitleScene extends Scene {
 		}));
 
 		row2.add(new Button(Zero(), 'Credits', () => {
-			this.parent.goto(new CreditsScene());
+			this.parent.goto(new SlideInTopTransition(new CreditsScene(), 1000, easing.OUTELASTIC));
 		}));
 		this.layout.add(row2);
 

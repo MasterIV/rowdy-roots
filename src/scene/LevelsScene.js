@@ -6,6 +6,7 @@ import {VerticalLayout, HorizontalLayout} from 'tin-engine/basic/layout'
 import GameScene from './GameScene';
 import Fonts from '../definition/fonts';
 import levelData from '../definition/levels';
+import TitleScene from './TitleScene';
 
 export default class LevelsScene extends Scene {
 	constructor() {
@@ -37,6 +38,7 @@ export default class LevelsScene extends Scene {
 			level++;
 		}
 
+		vertical.add(new Button(new V2(490, 580), 'Menu', () => this.parent.goto(new TitleScene())));
 		vertical.align('center');
 		// horizontally center menu on the scene
 		this.center(vertical);
