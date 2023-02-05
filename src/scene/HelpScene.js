@@ -1,6 +1,6 @@
 import Scene from 'tin-engine/lib/scene';
 import V2, {Zero} from 'tin-engine/geo/v2';
-import Button from 'tin-engine/basic/button';
+import Button from '../ui/Button';
 import TextEntity from 'tin-engine/basic/text';
 import Entity from 'tin-engine/basic/entity';
 import ImageEntity from 'tin-engine/basic/image';
@@ -21,8 +21,8 @@ export default class HelpScene extends Scene {
 
 		this.marginLeftRight = 100;
 		this.marginTop = 100;
-		this.rowHeight = 150;
-		this.rowSpacing = 20;
+		this.rowHeight = 100;
+		this.rowSpacing = 10;
 
 		this.pages = [
 			[{
@@ -50,26 +50,21 @@ export default class HelpScene extends Scene {
 		];
 		this.pages = this.pages.concat(this.autofillTowers());
 		this.pages = this.pages.concat(this.autofillEnemies());
-		this.pages.push([{
-			text: 'That\'s it! Jump directly into level 1 or go to back the main menu.'
-		}]);
 		this.page = 0;
 
 		this.pageContainer = new Entity();
 		this.add(this.pageContainer);
 
 		const self = this;
-		this.nextButton = new Button(new V2(880, 600), this.nextPage.bind(self));
-		this.nextButton.rect(300, 50).text('Next Page', Fonts.button);
+		this.nextButton = new Button(new V2(880, 580), 'Next Page', this.nextPage.bind(self));
 		this.add(this.nextButton);
 
-		this.previousButton = new Button(new V2(100, 600), this.previousPage.bind(self));
-		this.previousButton.rect(300, 50).text('Previous Page', Fonts.button);
+		this.previousButton = new Button(new V2(100, 580), 'Previous Page', this.previousPage.bind(self));
 		this.previousButton.visible = false;
 		this.add(this.previousButton);
 
-		this.gameButton = new Button(new V2(880, 500), () => this.parent.goto(new GameScene(1))).rect(300, 50).text('Level 1!', Fonts.button);
-		this.menuButton = new Button(new V2(880, 400), () => this.parent.goto(new TitleScene())).rect(300, 50).text('Main menu', Fonts.button);
+		this.gameButton = new Button(new V2(490, 580), 'Play', () => this.parent.goto(new GameScene(1)));
+		this.menuButton = new Button(new V2(880, 580), 'Menu', () => this.parent.goto(new TitleScene()));
 
 		this.renderPage();
 	}
@@ -107,15 +102,18 @@ export default class HelpScene extends Scene {
 	renderPage() {
 		this.remove(this.pageContainer);
 		this.pageContainer = new Entity();
+
 		const font = Fonts.helpPage;
+		const rowHeight = this.page ? this.rowHeight : 150;
+
 		font.align = 'left';
 		font.base = 'top';
 
 		const currentPage = this.pages[this.page];
 		for (let i = 0; i < currentPage.length; i++) {
-			const imagePos = new V2(this.marginLeftRight, this.marginTop + (this.rowHeight + this.rowSpacing)*i);
+			const imagePos = new V2(this.marginLeftRight, this.marginTop + (rowHeight + this.rowSpacing)*i);
 			const labelPos = imagePos.clone();
-			const labelSize = new V2(this.size.x - this.marginLeftRight*2, this.rowHeight);
+			const labelSize = new V2(this.size.x - this.marginLeftRight*2, rowHeight);
 			if (currentPage[i].image) {
 				labelPos.x += 200;
 				labelSize.x -= 200;
@@ -138,7 +136,6 @@ export default class HelpScene extends Scene {
 	}
 
 	autofillTowers() {
-		const pages = [];
 		let page = [];
 		for (let i = 0; i < towerData.length; i++) {
 			const entry = {};
@@ -149,19 +146,11 @@ export default class HelpScene extends Scene {
 			entry.state = 3;
 			entry.text = towerData[i].name + ': ' + towerData[i].description + ' Cost: ' + towerData[i].cost.sun + ' Sun, ' + towerData[i].cost.water + ' Water.';
 			page.push(entry);
-			if (page.length >= 3) {
-				pages.push([...page]);
-				page = [];
-			}
-			else if (i == towerData.length-1) {
-				pages.push([...page]);
-			}
 		}
-		return pages;
+		return [page];
 	}
 
 	autofillEnemies() {
-		const pages = [];
 		let page = [];
 		for (let i = 0; i < enemyData.length; i++) {
 			const entry = {};
@@ -172,14 +161,7 @@ export default class HelpScene extends Scene {
 			entry.state = 3;
 			entry.text = enemyData[i].name + ': ' + enemyData[i].description;
 			page.push(entry);
-			if (page.length >= 3) {
-				pages.push([...page]);
-				page = [];
-			}
-			else if (i == enemyData.length-1) {
-				pages.push([...page]);
-			}
 		}
-		return pages;
+		return [page];
 	}
 }
