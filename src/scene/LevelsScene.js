@@ -1,7 +1,7 @@
 import Scene from 'tin-engine/lib/scene';
 import V2, {Zero} from 'tin-engine/geo/v2';
 import config from '../config';
-import Button from 'tin-engine/basic/button';
+import Button from '../ui/Button';
 import {VerticalLayout, HorizontalLayout} from 'tin-engine/basic/layout'
 import GameScene from './GameScene';
 import Fonts from '../definition/fonts';
@@ -25,9 +25,7 @@ export default class LevelsScene extends Scene {
 			if (i == rows-1) buttons = levels % 3;
 			for (let j = 0; j < buttons; j++) {
 				layout
-					.add(Button.create(Zero(), () => this.parent.goto(new GameScene(1)))
-					.rect(300, 50)
-					.text(level + ': ' + window.maploader.data[levelData[level].map].properties[0]['value'], Fonts.levelButton)
+					.add(new Button(Zero(), level + ': ' + window.maploader.data[levelData[level].map].properties[0]['value'], () => this.parent.goto(new GameScene(1)))
 					);
 				level++;
 			}
