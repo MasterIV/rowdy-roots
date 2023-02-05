@@ -10,7 +10,7 @@ import enemies from './definition/enemies';
 import towers from './definition/towers';
 
 window.onload = () => {
-	const music = new Audio('../snd/music.mp3');
+	const music = new Audio('snd/music.mp3');
 	music.loop = true;
 	music.volume = .2;
 
