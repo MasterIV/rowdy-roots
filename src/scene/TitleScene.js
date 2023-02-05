@@ -16,6 +16,8 @@ export default class TitleScene extends Scene {
 		super();
 		// initialize size to use the center method
 		this.setSize(config.screen.w, config.screen.h);
+		this.bg = 'img/helpbg.png';
+
 		// create layout container to organize buttons
 		this.layout = new VerticalLayout(new V2(0, 100), 0, 50);
 		// add buttons to main menu
@@ -31,10 +33,5 @@ export default class TitleScene extends Scene {
 		}
 		// horizontally center menu on the scene
 		this.center(this.layout);
-	}
-
-	onDraw(ctx) {
-		ctx.fillStyle = 'white';
-		ctx.fillRect(0, 0, this.size.x, this.size.y);
 	}
 }

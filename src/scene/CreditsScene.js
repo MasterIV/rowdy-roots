@@ -10,11 +10,14 @@ export default class CreditsScene extends Scene {
 		super();
 		// initialize size to use the center method
 		this.setSize(config.screen.w, config.screen.h);
+		this.bg = 'img/helpbg.png';
+
 		// create layout container to organize buttons
-		const layout = new VerticalLayout(new V2(0, 100), 0, 100);
+		const layout = new VerticalLayout(new V2(0, 200), 0, 100);
 		// add some credits
 		layout.add(new TextEntity(Zero(), 'Syrup'));
 		layout.add(new TextEntity(Zero(), 'Felix'));
+		layout.add(new TextEntity(Zero(), 'Melusine'));
 		// add back button
 		layout.add(Button.create(Zero(), () => this.parent.goto(this.previous)).rect(300, 50).text('Back'));
 		// align items within the layout
@@ -27,10 +30,5 @@ export default class CreditsScene extends Scene {
 		// this is called before the scene gets set to the new value
 		this.previous = game.scene;
 		super.setParent(game);
-	}
-
-	onDraw(ctx) {
-		ctx.fillStyle = 'white';
-		ctx.fillRect(0, 0, this.size.x, this.size.y);
 	}
 }

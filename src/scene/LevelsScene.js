@@ -12,6 +12,7 @@ export default class LevelsScene extends Scene {
 		super();
 		// initialize size to use the center method
 		this.setSize(config.screen.w, config.screen.h);
+		this.bg = 'img/helpbg.png';
 
 		const levels = levelData.length - 1;
 		const rows = Math.ceil(levels / 3);
@@ -38,10 +39,5 @@ export default class LevelsScene extends Scene {
 		vertical.align('center');
 		// horizontally center menu on the scene
 		this.center(vertical);
-	}
-
-	onDraw(ctx) {
-		ctx.fillStyle = 'white';
-		ctx.fillRect(0, 0, this.size.x, this.size.y);
 	}
 }
