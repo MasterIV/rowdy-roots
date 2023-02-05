@@ -11,12 +11,20 @@ import EnemySpawner from '../entity/EnemySpawner';
 import TitleScene from './TitleScene';
 import BuildMenu from '../ui/BuildMenu';
 import RootMenu from '../ui/RootMenu';
-import GameoverScene from './GameoverScene';
+import RectEntity from 'tin-engine/basic/rect';
+import Colors from 'tin-engine/definition/colors';
+import Button from '../ui/Button';
+import ImageEntity from 'tin-engine/basic/image';
+
+const overlay = new Colors('#000', 'rgba(0, 0, 0, .5)');
 
 export default class GameScene extends Scene {
 	constructor(level) {
 		super();
+
 		this.setSize(config.screen.w, config.screen.h);
+		this.level = level;
+
 		this.resources = {hp: 10, water: 0, sun: 15, claimedWater: 0 };
 		this.resourceTimer = 1000;
 
@@ -67,11 +75,19 @@ export default class GameScene extends Scene {
 	attack() {
 		this.resources.hp--;
 		if(this.resources.hp < 1) {
-			this.parent.goto(new GameoverScene());
+			this.block(new RectEntity(Zero(), this.size, overlay));
+			this.block(new ImageEntity(new V2(269, 0), 'img/game_over_screen.png'));
+			this.block(new Button(new V2(490, 580), 'Menu', () => this.parent.goto(new TitleScene())));
 		}
 	}
 
 	levelWon() {
-		this.parent.goto(new TitleScene());
+		this.block(new RectEntity(Zero(), this.size, overlay));
+		this.block(new ImageEntity(new V2(269, 0), 'img/game_over_screen.png'));
+
+		if(levelData.length-2 < this.level)
+			this.block(new Button(new V2(490, 580), 'Menu', () => this.parent.goto(new TitleScene())));
+		else
+			this.block(new Button(new V2(490, 580), 'Next', () => this.parent.goto(new GameScene(this.level+1))));
 	}
 }

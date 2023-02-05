@@ -11,15 +11,20 @@ export default class EnemySpawner extends Entity {
 		this.map = map;
 		this.nextWave = 0;
 		this.currentTimer = 0;
+		this.winTimer = 0;
 
 		this.grubs = [];
 		this.bugs = [];
 	}
 
 	onUpdate(delta) {
-		if (!this.bugs.length && !this.grubs.length) {
-			if (this.nextWave >= this.waves.length) {
+		if(this.winTimer) {
+			this.winTimer += delta;
+			if(this.winTimer > 5000)
 				this.parent.parent.levelWon();
+		} else if (!this.bugs.length && !this.grubs.length) {
+			if (this.nextWave >= this.waves.length) {
+				this.winTimer = delta;
 			} else {
 				this.spawnGrubs();
 			}
