@@ -61,6 +61,7 @@ export default class GameScene extends Scene {
 			this.resources.water += this.resources.claimedWater;
 			this.resourceTimer += 1000;
 		}
+		if (this.parent.music.paused || !this.parent.music.currentTime) this.parent.music.play();
 	}
 
 	attack() {

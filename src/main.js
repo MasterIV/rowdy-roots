@@ -10,6 +10,10 @@ import enemies from './definition/enemies';
 import towers from './definition/towers';
 
 window.onload = () => {
+	const music = new Audio('../snd/music.mp3');
+	music.loop = true;
+	music.volume = .2;
+
 	// Preload graphics here
 	graphics.add('img/splatter.png');
 	graphics.add('img/explosion.png');
@@ -52,6 +56,7 @@ window.onload = () => {
 			controls.init(game);
 			mouse.init(game);
 
+			game.music = music;
 			game.run(new TitleScene());
 			// debug
 			window.game = game;
